@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms &amp; Suites | Hotel &amp; Spa Adina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/rooms.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="header-logo">
+        <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="rooms.html" class="nav-link-custom active">Rooms</a>
+        <a href="index.html#restaurant" class="nav-link-custom">Restaurant</a>
+        <a href="spa.html" class="nav-link-custom">Spa</a>
+        <a href="index.html#contact" class="nav-link-custom">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="rooms-hero" id="top">
+    <div class="rooms-hero-overlay"></div>
+    <div class="rooms-hero-content">
+      <p class="hero-subtitle">Hotel &amp; Spa Adina</p>
+      <h1 class="rooms-hero-title">Rooms &amp; Suites</h1>
+      <p class="rooms-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="rooms-breadcrumb-sep">/</span>
+        <span>Rooms</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="container booking-bar-wrapper">
+    <div class="booking-bar-container">
+      <form class="booking-form" action="#room-list" method="GET">
+        <div class="booking-field">
+          <label for="check-in-date">Check In</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-calendar-check"></i></span>
+            <input type="date" id="check-in-date" name="checkIn" value="2026-09-22" required aria-label="Select check-in date">
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label for="check-out-date">Check Out</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-calendar-x"></i></span>
+            <input type="date" id="check-out-date" name="checkOut" value="2026-09-25" required aria-label="Select check-out date">
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label for="adults-count">Adults</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-people"></i></span>
+            <select id="adults-count" name="adults" aria-label="Select adults count">
+              <option value="1">1 Adult</option>
+              <option value="2" selected>2 Adults</option>
+              <option value="3">3 Adults</option>
+              <option value="4">4 Adults</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label for="kids-count">Kids</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-person-hearts"></i></span>
+            <select id="kids-count" name="kids" aria-label="Select kids count">
+              <option value="0" selected>0 Kid (No Kid)</option>
+              <option value="1">1 Kid</option>
+              <option value="2">2 Kids</option>
+              <option value="3">3 Kids</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-custom btn-accent booking-btn">Check Now</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="rooms-intro">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Stay With Us</p>
+        <h2 class="h2">Choose Your Perfect Room</h2>
+        <p class="rooms-intro-text">
+          From cosy superior rooms to spacious luxury suites, every room at Adina is designed for comfort, calm and a good night's sleep.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="room-list-section" id="room-list">
+    <div class="container">
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/1.png" alt="Superior Room">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=1">Superior Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 30 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 1 guest</li>
+            <li><i class="bi bi-moon-stars"></i> Queen bed</li>
+          </ul>
+          <p class="room-row-desc">
+            A calm, compact room with a comfortable queen bed, a work desk and large windows overlooking the city. Ideal for solo travellers.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $115 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=1" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=1" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/2.png" alt="Signature Room">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=2">Signature Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 70 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 2 guests</li>
+            <li><i class="bi bi-moon-stars"></i> King bed</li>
+          </ul>
+          <p class="room-row-desc">
+            Our signature master bedroom with a king bed, a separate sitting area and a marble bathroom with a deep soaking tub.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $220 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=2" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=2" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/3.png" alt="Deluxe Room with garden terrace">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=3">Deluxe Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 50 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 3 guests</li>
+            <li><i class="bi bi-moon-stars"></i> King bed + sofa bed</li>
+          </ul>
+          <p class="room-row-desc">
+            A bright room with a modern lounge and a private garden terrace. Perfect for a small family or friends travelling together.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $265 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=3" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=3" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/4.png" alt="Luxury Room with private balcony">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=4">Luxury Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 50 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 4 guests</li>
+            <li><i class="bi bi-moon-stars"></i> King bed + twin</li>
+          </ul>
+          <p class="room-row-desc">
+            Wake up to sweeping views from your own panoramic balcony. Soft lighting, premium linen and a rain shower complete the room.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $289 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=4" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=4" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/5.png" alt="Luxury Suite Room with living room">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=5">Luxury Suite Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 90 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 5 guests</li>
+            <li><i class="bi bi-moon-stars"></i> King bed + 2 twin</li>
+          </ul>
+          <p class="room-row-desc">
+            A full suite with a separate living room, a dining corner and a large bedroom. Made for longer stays and family holidays.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $320 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=5" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=5" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/6.png" alt="Deluxe Room with family layout">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=6">Deluxe Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 45 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 6 guests</li>
+            <li><i class="bi bi-moon-stars"></i> 2 double beds</li>
+          </ul>
+          <p class="room-row-desc">
+            A family layout with two double beds, extra storage and a play corner for kids, so everyone has enough space to relax.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $344 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=6" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=6" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/7.png" alt="Luxury Room penthouse style">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=7">Luxury Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 84 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 7 guests</li>
+            <li><i class="bi bi-moon-stars"></i> King bed + 3 twin</li>
+          </ul>
+          <p class="room-row-desc">
+            An executive penthouse-style room on the top floor, with a lounge, a work area and floor-to-ceiling windows.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $389 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=7" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=7" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="room-row">
+        <div class="room-row-img">
+          <img src="assets/img/rooms/8.png" alt="Deluxe Room premium layout">
+        </div>
+        <div class="room-row-body">
+          <h3 class="room-row-title"><a href="room-details.html?id=8">Deluxe Room</a></h3>
+          <ul class="room-row-meta">
+            <li><i class="bi bi-fullscreen"></i> 48 m&sup2;</li>
+            <li><i class="bi bi-people"></i> Max 8 guests</li>
+            <li><i class="bi bi-moon-stars"></i> 4 double beds</li>
+          </ul>
+          <p class="room-row-desc">
+            Our largest group room with premium hospitality, a private lounge and priority access to the spa and restaurant.
+          </p>
+          <div class="room-row-footer">
+            <p class="room-row-price"><span>From</span> $499 <small>/ night</small></p>
+            <div class="room-row-actions">
+              <a href="room-details.html?id=8" class="btn-custom btn-custom-sm btn-dark">Book Now</a>
+              <a href="room-details.html?id=8" class="btn-custom btn-custom-sm btn-outline-custom">View Details</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="rooms-amenities-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Every Stay Includes</p>
+        <h2 class="h2">Comfort In Every Room</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-6 col-lg-3">
+          <div class="amenity-box">
+            <div class="amenity-icon"><i class="bi bi-wifi"></i></div>
+            <h4>Free Wi-Fi</h4>
+            <p>High-speed internet in all rooms</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="amenity-box">
+            <div class="amenity-icon"><i class="bi bi-cup-hot"></i></div>
+            <h4>Breakfast</h4>
+            <p>Fresh buffet every morning</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="amenity-box">
+            <div class="amenity-icon"><i class="bi bi-headset"></i></div>
+            <h4>Room Service</h4>
+            <p>Available 24 hours a day</p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="amenity-box">
+            <div class="amenity-icon"><i class="bi bi-shield-check"></i></div>
+            <h4>Safe &amp; Secure</h4>
+            <p>In-room safe and 24h security</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rooms-cta">
+    <div class="rooms-cta-overlay"></div>
+    <div class="container rooms-cta-content">
+      <p class="section-tag">Need Help Choosing?</p>
+      <h2 class="h2">Talk To Our Concierge Team</h2>
+      <p class="rooms-cta-text">
+        Not sure which room fits your trip? Tell us your dates and we will suggest the best option.
+      </p>
+      <a href="index.html#contact" class="btn-custom btn-custom-lg btn-accent">Contact Us</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5 pb-4 border-bottom border-secondary border-opacity-25">
+        <div class="col-12 col-md-5">
+          <a href="index.html" class="footer-logo mb-3 d-inline-block">
+            <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
+          </a>
+          <p class="text-white-50 mt-2 mb-3" style="max-width: 380px; font-size: 14px; line-height: 1.7;">
+            Hotel &amp; Spa Adina provides a tranquil sanctuary of luxury, refined dining, and restorative wellness designed for unforgettable seaside escapes.
+          </p>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <h4 class="text-uppercase text-white mb-3" style="font-family: var(--font-tertiary); font-size: 14px; letter-spacing: 2px;">Quick Navigation</h4>
+          <ul class="list-unstyled" style="font-size: 14px; line-height: 2;">
+            <li><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+            <li><a href="rooms.html" class="text-white-50 text-decoration-none">Rooms &amp; Suites</a></li>
+            <li><a href="index.html#restaurant" class="text-white-50 text-decoration-none">Restaurant &amp; Wine</a></li>
+            <li><a href="spa.html" class="text-white-50 text-decoration-none">Spa &amp; Wellness</a></li>
+            <li><a href="index.html#contact" class="text-white-50 text-decoration-none">Contact &amp; Location</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4">
+          <h4 class="text-uppercase text-white mb-3" style="font-family: var(--font-tertiary); font-size: 14px; letter-spacing: 2px;">Stay Connected</h4>
+          <p class="text-white-50" style="font-size: 14px;">Subscribe to receive private invitations to seasonal retreats and culinary events.</p>
+          <form action="#top" method="GET" class="d-flex mt-3">
+            <input type="email" placeholder="Your email address" class="form-control-custom me-2" style="height: 44px; font-size: 13px; background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.2);" required>
+            <button type="submit" class="btn-custom btn-accent" style="height: 44px; padding: 0 16px; font-size: 12px;">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4">
+        <p class="footer-copyright mb-2 mb-md-0">
+          &copy; 2026 Hotel &amp; Spa Adina. All Rights Reserved. Designed for College Evaluation.
+        </p>
+        <div class="d-flex gap-3" style="font-size: 13px;">
+          <a href="#top" class="text-white-50">Privacy Policy</a>
+          <span class="text-white-50">&bull;</span>
+          <a href="#top" class="text-white-50">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript for Responsive Mobile Navigation -->
+  <script src="js/main.js"></script>
+</body>
+</html>

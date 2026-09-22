@@ -1,0 +1,1105 @@
+/* ==========================================================================
+   HOTEL & RESORT MANAGEMENT SYSTEM - MAIN STYLESHEET
+   Pure CSS - Rebuilt from React Frontend Design
+   Collaborators: Ayush Gupta & Deepanshu Kashyap
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FONTS & DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&family=Gilda+Display&display=swap');
+
+/* Self-hosted fonts fallback */
+@font-face {
+  font-family: 'Gilda Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/gilda-display-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/barlow-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/barlow-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/barlow-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/barlow-condensed-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/barlow-condensed-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/barlow-condensed-700.woff2') format('woff2');
+}
+
+:root {
+  --font-primary: 'Gilda Display', serif;
+  --font-secondary: 'Barlow', sans-serif;
+  --font-tertiary: 'Barlow Condensed', sans-serif;
+
+  --color-primary: #0a0a0a;
+  --color-accent: #a37d4c;
+  --color-accent-hover: #967142;
+  --color-accent-light: rgba(163, 125, 76, 0.2);
+  --color-accent-subtle: rgba(163, 125, 76, 0.08);
+  --color-white: #ffffff;
+  --color-light-bg: #f8f9fa;
+  --color-border: #e5e7eb;
+  --color-text-muted: #555555;
+  --shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESETS & BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--color-accent);
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--color-white);
+}
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-primary);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Typography Helpers */
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.font-tertiary {
+  font-family: var(--font-tertiary);
+}
+
+.h2, h2 {
+  font-family: var(--font-primary);
+  font-size: 42px;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.h3, h3 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.section-tag {
+  font-family: var(--font-tertiary);
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 6px;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-custom {
+  font-family: var(--font-tertiary);
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  transition: var(--transition);
+  padding: 0 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-custom-sm {
+  height: 48px;
+}
+
+.btn-custom-lg {
+  height: 60px;
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-white);
+}
+
+.btn-dark {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-dark:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER & NAVIGATION
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  min-height: 72px;
+  padding: 20px 0;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-logo {
+  display: block;
+  width: 160px;
+  flex-shrink: 0;
+}
+
+.header-logo img {
+  width: 160px;
+  height: auto;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-family: var(--font-tertiary);
+  letter-spacing: 3px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.nav-link-custom {
+  color: var(--color-white);
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-link-custom:hover {
+  color: var(--color-accent);
+}
+
+.nav-link-custom.active {
+  color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 600px;
+  height: 90vh;
+  max-height: 860px;
+  background: url('../assets/img/heroSlider/1.jpg') no-repeat center center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 15px;
+  max-width: 960px;
+  margin-top: 40px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: 34px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 52px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-title {
+    font-size: 66px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. FLOATING BOOKING BAR
+   -------------------------------------------------------------------------- */
+.booking-bar-wrapper {
+  position: relative;
+  z-index: 30;
+  margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  .booking-bar-wrapper {
+    margin-top: -48px;
+  }
+}
+
+.booking-bar-container {
+  background-color: var(--color-accent-light);
+  padding: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.booking-form {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .booking-form {
+    flex-direction: row;
+    height: 70px;
+  }
+}
+
+.booking-field {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 992px) {
+  .booking-field {
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    padding: 0 20px;
+  }
+}
+
+.booking-field label {
+  font-family: var(--font-tertiary);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.booking-field-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.booking-field-icon {
+  color: var(--color-accent);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.booking-field input,
+.booking-field select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font-secondary);
+  font-size: 15px;
+  color: var(--color-primary);
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.booking-field select {
+  appearance: auto;
+  -webkit-appearance: menulist;
+}
+
+.booking-btn {
+  height: 60px;
+  border-radius: 0;
+}
+
+@media (min-width: 992px) {
+  .booking-btn {
+    height: 70px;
+    flex: 1;
+    min-width: 180px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. ROOMS & SUITES SECTION
+   -------------------------------------------------------------------------- */
+.rooms-section {
+  padding: 96px 0;
+  background-color: var(--color-white);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.room-card {
+  background-color: var(--color-white);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  margin-bottom: 30px;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.room-card:hover {
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.16);
+}
+
+.room-img-wrapper {
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background-color: #eee;
+}
+
+.room-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.room-card:hover .room-img-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Floating Room Meta Bar */
+.room-meta-strip {
+  background-color: var(--color-white);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  width: 82%;
+  max-width: 300px;
+  margin: -30px auto 0;
+  height: 60px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: var(--font-tertiary);
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0 16px;
+}
+
+.room-meta-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.room-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.room-meta-icon {
+  color: var(--color-accent);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.room-card-body {
+  padding: 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.room-title {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+.room-title a:hover {
+  color: var(--color-accent);
+}
+
+.room-desc {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  max-width: 280px;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+}
+
+.room-card-body .btn-custom {
+  margin-top: auto;
+  align-self: center;
+  width: 80%;
+  max-width: 240px;
+}
+
+/* --------------------------------------------------------------------------
+   7. ROOM DETAILS PAGE
+   -------------------------------------------------------------------------- */
+.details-hero {
+  position: relative;
+  height: 540px;
+  background: url('../assets/img/room.jpg') no-repeat center center / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.details-hero-title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-primary);
+  font-size: 42px;
+  letter-spacing: 1px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .details-hero-title {
+    font-size: 60px;
+  }
+}
+
+.details-content-section {
+  padding: 80px 0;
+}
+
+.room-details-main {
+  text-align: justify;
+}
+
+.room-details-main h2 {
+  font-family: var(--font-primary);
+  font-size: 42px;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.room-details-main .lead-text {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.room-large-img {
+  width: 100%;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.facilities-heading {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  margin: 36px 0 20px;
+  color: var(--color-primary);
+}
+
+/* Facilities Grid */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .facilities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.facility-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.facility-icon {
+  font-size: 26px;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+}
+
+.facility-name {
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+/* Details Sidebar */
+.reservation-card {
+  background-color: var(--color-accent-light);
+  padding: 32px 24px;
+  margin-bottom: 40px;
+}
+
+.reservation-card h3 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+}
+
+.reservation-form-group {
+  margin-bottom: 16px;
+}
+
+.reservation-form-group label {
+  font-family: var(--font-tertiary);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.reservation-input-box {
+  background-color: var(--color-white);
+  height: 54px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border: 1px solid rgba(163, 125, 76, 0.3);
+}
+
+.reservation-input-box input,
+.reservation-input-box select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-secondary);
+  font-size: 15px;
+}
+
+/* Hotel Rules Box */
+.hotel-rules-card {
+  padding: 10px 0;
+}
+
+.hotel-rules-card h3 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.hotel-rules-card p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rules-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.rules-icon {
+  color: var(--color-accent);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 48px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-logo img {
+  width: 160px;
+  height: auto;
+}
+
+.footer-copyright {
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   10. RESTAURANT & DINING SECTION (Contributed by Ayush Tyagi)
+   -------------------------------------------------------------------------- */
+.restaurant-section {
+  background-color: #faf8f5;
+  border-top: 1px solid rgba(163, 125, 76, 0.15);
+  border-bottom: 1px solid rgba(163, 125, 76, 0.15);
+}
+
+.restaurant-content h3 {
+  font-family: var(--font-primary);
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.restaurant-content p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.dining-hours-box {
+  background: var(--color-white);
+  border-left: 3px solid var(--color-accent);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.dining-hour-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 4px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.dining-hour-item:last-child {
+  border-bottom: none;
+}
+
+.restaurant-img-frame {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.restaurant-img-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.restaurant-img-frame:hover img {
+  transform: scale(1.04);
+}
+
+.restaurant-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(10, 10, 10, 0.85);
+  color: var(--color-accent);
+  padding: 8px 18px;
+  font-family: var(--font-tertiary);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+/* --------------------------------------------------------------------------
+   11. SPA & WELLNESS RETREAT SECTION (Contributed by Ayush Tyagi)
+   -------------------------------------------------------------------------- */
+.spa-section {
+  background-color: var(--color-white);
+}
+
+.spa-card {
+  background-color: var(--color-white);
+  border: 1px solid rgba(163, 125, 76, 0.2);
+  padding: 36px 28px;
+  text-align: center;
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spa-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 30px rgba(163, 125, 76, 0.12);
+  border-color: var(--color-accent);
+}
+
+.spa-card-icon {
+  font-size: 40px;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.spa-card h3 {
+  font-family: var(--font-primary);
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.spa-card p {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.spa-card-meta {
+  font-family: var(--font-tertiary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding-top: 14px;
+  border-top: 1px dashed var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   12. CONTACT & INQUIRY SECTION (Contributed by Ayush Tyagi)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  background-color: #faf8f5;
+  border-top: 1px solid rgba(163, 125, 76, 0.15);
+}
+
+.contact-info h3 {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.contact-info p {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.contact-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border: 1px solid rgba(163, 125, 76, 0.3);
+  color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-form-box {
+  background-color: var(--color-white);
+  padding: 36px 32px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.form-group-custom {
+  margin-bottom: 20px;
+}
+
+.form-group-custom label {
+  font-family: var(--font-tertiary);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control-custom {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  padding: 12px 16px;
+  font-family: var(--font-secondary);
+  font-size: 15px;
+  outline: none;
+  transition: var(--transition);
+  background-color: #fdfdfd;
+}
+
+.form-control-custom:focus {
+  border-color: var(--color-accent);
+  background-color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE UTILITIES & POLISH
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-header .container {
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px 28px;
+    gap: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid var(--color-accent);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .main-nav.is-open {
+    display: flex;
+    animation: navFadeDown 0.25s ease-out forwards;
+  }
+
+  .nav-link-custom {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 14px;
+  }
+}
+
+@keyframes navFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

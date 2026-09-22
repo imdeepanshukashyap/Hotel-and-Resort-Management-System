@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hotel and Resort Management System - Luxury hotel rooms, suites, spa, and vacation booking experience.">
+  <title>Hotel &amp; Spa Adina | Luxury Hotel and Resort</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Main Project Stylesheet (Pure CSS) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="header-logo" aria-label="Hotel &amp; Spa Adina Home">
+        <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link-custom active">Home</a>
+        <a href="rooms.html" class="nav-link-custom">Rooms</a>
+        <a href="#restaurant" class="nav-link-custom">Restaurant</a>
+        <a href="spa.html" class="nav-link-custom">Spa</a>
+        <a href="#contact" class="nav-link-custom">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <section class="hero-section" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-subtitle">Just Enjoy &amp; Relax</p>
+      <h1 class="hero-title">Your Luxury Hotel For Vacation</h1>
+      <a href="#rooms" class="btn-custom btn-custom-lg btn-accent">See our rooms</a>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FLOATING BOOKING RESERVATION BAR
+       ======================================================================== -->
+  <div class="container booking-bar-wrapper">
+    <div class="booking-bar-container">
+      <form class="booking-form" action="#rooms" method="GET">
+        <!-- Check In -->
+        <div class="booking-field">
+          <label for="check-in-date">Check In</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-calendar-check"></i></span>
+            <input type="date" id="check-in-date" name="checkIn" value="2026-09-22" required aria-label="Check-in date">
+          </div>
+        </div>
+
+        <!-- Check Out -->
+        <div class="booking-field">
+          <label for="check-out-date">Check Out</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-calendar-x"></i></span>
+            <input type="date" id="check-out-date" name="checkOut" value="2026-09-25" required aria-label="Check-out date">
+          </div>
+        </div>
+
+        <!-- Adults Dropdown -->
+        <div class="booking-field">
+          <label for="adults-count">Adults</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-people"></i></span>
+            <select id="adults-count" name="adults" aria-label="Select number of adults">
+              <option value="1">1 Adult</option>
+              <option value="2" selected>2 Adults</option>
+              <option value="3">3 Adults</option>
+              <option value="4">4 Adults</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Kids Dropdown -->
+        <div class="booking-field">
+          <label for="kids-count">Kids</label>
+          <div class="booking-field-input">
+            <span class="booking-field-icon"><i class="bi bi-person-hearts"></i></span>
+            <select id="kids-count" name="kids" aria-label="Select number of children">
+              <option value="0" selected>0 Kid (No Kid)</option>
+              <option value="1">1 Kid</option>
+              <option value="2">2 Kids</option>
+              <option value="3">3 Kids</option>
+              <option value="4">4 Kids</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Submit CTA -->
+        <button type="submit" class="btn-custom btn-accent booking-btn">
+          Check Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       ROOMS & SUITES SECTION
+       ======================================================================== -->
+  <section class="rooms-section" id="rooms">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Hotel &amp; Spa Adina</p>
+        <h2 class="h2">Room &amp; Suites</h2>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Room 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/1.png" alt="Superior Room featuring queen bed and city view" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 30m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 1</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=1">Superior Room</a>
+              </h3>
+              <p class="room-desc">A calm, compact room with a comfortable queen bed, work desk and skyline views. Ideal for solo travellers.</p>
+              <a href="room-details.html?id=1" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $115
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/2.png" alt="Signature Room featuring deluxe master bedroom" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 70m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 2</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=2">Signature Room</a>
+              </h3>
+              <p class="room-desc">Our signature master bedroom with a king bed, private sitting lounge and marble bathroom with soaking tub.</p>
+              <a href="room-details.html?id=2" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $220
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/3.png" alt="Deluxe Room with modern lounge and garden terrace" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 50m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 3</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=3">Deluxe Room</a>
+              </h3>
+              <p class="room-desc">A bright room with a modern lounge and private garden terrace. Perfect for small families and companions.</p>
+              <a href="room-details.html?id=3" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $265
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 4 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/4.png" alt="Luxury Room with private panoramic balcony" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 50m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 4</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=4">Luxury Room</a>
+              </h3>
+              <p class="room-desc">Wake up to sweeping views from your panoramic balcony with mood lighting, premium linen and rainfall shower.</p>
+              <a href="room-details.html?id=4" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $289
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 5 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/5.png" alt="Luxury Suite Room with spacious living room" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 90m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 5</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=5">Luxury Suite Room</a>
+              </h3>
+              <p class="room-desc">A full luxury suite featuring separate living room, dining salon, and master bedroom for extended holidays.</p>
+              <a href="room-details.html?id=5" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $320
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 6 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/6.png" alt="Deluxe Room with family suite layout" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 45m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 6</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=6">Deluxe Room</a>
+              </h3>
+              <p class="room-desc">Thoughtfully designed family layout with two double beds, generous storage, and dedicated relaxation space.</p>
+              <a href="room-details.html?id=6" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $344
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 7 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/7.png" alt="Luxury Room executive penthouse style" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 84m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 7</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=7">Luxury Room</a>
+              </h3>
+              <p class="room-desc">Executive penthouse-inspired room with dramatic panoramic vistas, executive lounge, and floor-to-ceiling glass.</p>
+              <a href="room-details.html?id=7" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $389
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Room 8 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="room-card">
+            <div class="room-img-wrapper">
+              <img src="assets/img/rooms/8.png" alt="Deluxe Room with premium hospitality layout" loading="lazy">
+            </div>
+            <div class="room-meta-strip">
+              <div class="room-meta-content">
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-fullscreen"></i></span>
+                  <span>Size 48m²</span>
+                </div>
+                <div class="room-meta-item">
+                  <span class="room-meta-icon"><i class="bi bi-people"></i></span>
+                  <span>Max people 8</span>
+                </div>
+              </div>
+            </div>
+            <div class="room-card-body">
+              <h3 class="room-title">
+                <a href="room-details.html?id=8">Deluxe Room</a>
+              </h3>
+              <p class="room-desc">Grand group residence offering four double beds, private lounge, and priority access across the resort.</p>
+              <a href="room-details.html?id=8" class="btn-custom btn-custom-sm btn-dark">
+                Book now from $499
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       RESTAURANT & DINING SECTION (Contributed by Ayush Tyagi)
+       ======================================================================== -->
+  <section class="restaurant-section py-5" id="restaurant">
+    <div class="container py-4">
+      <div class="section-header">
+        <p class="section-tag">Gourmet Dining &amp; Cellar</p>
+        <h2 class="h2">Fine Dining Experience</h2>
+      </div>
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6">
+          <div class="restaurant-content">
+            <h3>Exquisite Flavors Crafted by Master Chefs</h3>
+            <p>
+              Indulge in a culinary journey where seasonal farm-to-table organic produce meets world-class gastronomy. From sunrise artisan breakfast spreads to sunset romantic candle-lit dinners overlooking the bay, every dish is an artful celebration of authentic flavors.
+            </p>
+            <div class="dining-hours-box">
+              <div class="dining-hour-item">
+                <strong>Breakfast Buffet</strong>
+                <span>07:00 AM – 10:30 AM</span>
+              </div>
+              <div class="dining-hour-item">
+                <strong>Executive Lunch</strong>
+                <span>12:30 PM – 03:30 PM</span>
+              </div>
+              <div class="dining-hour-item">
+                <strong>Fine Dining &amp; Wine</strong>
+                <span>07:00 PM – 11:00 PM</span>
+              </div>
+            </div>
+            <a href="#contact" class="btn-custom btn-custom-sm btn-accent">
+              Reserve A Table
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="restaurant-img-frame">
+            <img src="assets/img/heroSlider/2.jpg" alt="Fine dining restaurant and wine bar at Hotel Adina" loading="lazy">
+            <div class="restaurant-badge">
+              Curated 5-Star Wine &amp; Dine
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SPA & WELLNESS RETREAT SECTION (Contributed by Ayush Tyagi)
+       ======================================================================== -->
+  <section class="spa-section py-5" id="spa">
+    <div class="container py-4">
+      <div class="section-header">
+        <p class="section-tag">Rejuvenate Body &amp; Mind</p>
+        <h2 class="h2">Holistic Spa &amp; Wellness Retreat</h2>
+      </div>
+      <div class="row g-4">
+        <!-- Spa Card 1 -->
+        <div class="col-12 col-md-4">
+          <div class="spa-card">
+            <div class="spa-card-icon">
+              <i class="bi bi-flower1"></i>
+            </div>
+            <h3>Therapeutic Massages</h3>
+            <p>
+              Revitalize your body with traditional Swedish, deep tissue, and warm herbal stone therapies delivered by master certified practitioners.
+            </p>
+            <div class="spa-card-meta">
+              60 Mins &bull; From $95
+            </div>
+          </div>
+        </div>
+
+        <!-- Spa Card 2 -->
+        <div class="col-12 col-md-4">
+          <div class="spa-card">
+            <div class="spa-card-icon">
+              <i class="bi bi-water"></i>
+            </div>
+            <h3>Hydrotherapy Thermal Pools</h3>
+            <p>
+              Soak in mineral-enriched temperature-controlled thermal baths, eucalyptus steam chambers, and Finnish dry saunas for deep detoxification.
+            </p>
+            <div class="spa-card-meta">
+              90 Mins &bull; From $130
+            </div>
+          </div>
+        </div>
+
+        <!-- Spa Card 3 -->
+        <div class="col-12 col-md-4">
+          <div class="spa-card">
+            <div class="spa-card-icon">
+              <i class="bi bi-brightness-high"></i>
+            </div>
+            <h3>Aromatherapy &amp; Body Wraps</h3>
+            <p>
+              Exclusive botanical essential oil blends combined with marine mud detox wraps to nourish the skin and restore mental clarity.
+            </p>
+            <div class="spa-card-meta">
+              45 Mins &bull; From $80
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5 d-flex flex-wrap justify-content-center gap-3">
+        <a href="spa.html" class="btn-custom btn-custom-sm btn-dark">
+          Explore Full Spa &amp; Treatments <i class="bi bi-arrow-right ms-1"></i>
+        </a>
+        <a href="#contact" class="btn-custom btn-custom-sm btn-accent">
+          Book Spa Session
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT & GUEST INQUIRIES SECTION (Contributed by Ayush Tyagi)
+       ======================================================================== -->
+  <section class="contact-section py-5" id="contact">
+    <div class="container py-4">
+      <div class="section-header">
+        <p class="section-tag">We Are Here For You</p>
+        <h2 class="h2">Contact &amp; Guest Inquiries</h2>
+      </div>
+      <div class="row g-5 align-items-center">
+        <!-- Contact Details -->
+        <div class="col-12 col-lg-5">
+          <div class="contact-info">
+            <h3>Hotel &amp; Resort Information</h3>
+            <p>
+              Have questions about our suites, bespoke dining reservations, or airport transfers? Our 24/7 concierge desk is delighted to assist you.
+            </p>
+            <ul class="contact-info-list">
+              <li class="contact-info-item">
+                <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+                <div>
+                  <strong>Address</strong><br>
+                  <span>104 Oceanfront Promenade, Marina Bay</span>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                <div>
+                  <strong>Direct Line</strong><br>
+                  <span>+1 (800) 555-ADINA</span>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                <div>
+                  <strong>Email Concierge</strong><br>
+                  <span>reservations@hoteladina.com</span>
+                </div>
+              </li>
+              <li class="contact-info-item">
+                <div class="contact-icon"><i class="bi bi-clock"></i></div>
+                <div>
+                  <strong>Front Desk Hours</strong><br>
+                  <span>24 Hours / 7 Days a Week</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-12 col-lg-7">
+          <div class="contact-form-box">
+            <form action="#contact" method="POST">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div class="form-group-custom">
+                    <label for="contact-name">Your Full Name</label>
+                    <input type="text" id="contact-name" name="name" class="form-control-custom" placeholder="e.g. John Doe" required>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="form-group-custom">
+                    <label for="contact-email">Email Address</label>
+                    <input type="email" id="contact-email" name="email" class="form-control-custom" placeholder="e.g. john@example.com" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label for="contact-subject">Subject</label>
+                    <input type="text" id="contact-subject" name="subject" class="form-control-custom" placeholder="Room Inquiry / Event Booking" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label for="contact-message">Your Message</label>
+                    <textarea id="contact-message" name="message" rows="4" class="form-control-custom" placeholder="How can our hospitality team assist you?" required></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-custom btn-custom-lg btn-accent w-100">
+                    Send Inquiry
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5 pb-4 border-bottom border-secondary border-opacity-25">
+        <!-- Col 1: About & Logo -->
+        <div class="col-12 col-md-5">
+          <a href="index.html" class="footer-logo mb-3 d-inline-block" aria-label="Hotel Adina Home">
+            <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
+          </a>
+          <p class="text-white-50 mt-2 mb-3" style="max-width: 380px; font-size: 14px; line-height: 1.7;">
+            Hotel &amp; Spa Adina provides a tranquil sanctuary of luxury, refined dining, and restorative wellness designed for unforgettable seaside escapes.
+          </p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-6 col-md-3">
+          <h4 class="text-uppercase text-white mb-3" style="font-family: var(--font-tertiary); font-size: 14px; letter-spacing: 2px;">Quick Navigation</h4>
+          <ul class="list-unstyled" style="font-size: 14px; line-height: 2;">
+            <li><a href="index.html#home" class="text-white-50 text-decoration-none hover-accent">Home</a></li>
+            <li><a href="rooms.html" class="text-white-50 text-decoration-none hover-accent">Rooms &amp; Suites</a></li>
+            <li><a href="index.html#restaurant" class="text-white-50 text-decoration-none hover-accent">Restaurant &amp; Wine</a></li>
+            <li><a href="spa.html" class="text-white-50 text-decoration-none hover-accent">Spa &amp; Wellness</a></li>
+            <li><a href="index.html#contact" class="text-white-50 text-decoration-none hover-accent">Contact &amp; Location</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Newsletter & Concierge -->
+        <div class="col-6 col-md-4">
+          <h4 class="text-uppercase text-white mb-3" style="font-family: var(--font-tertiary); font-size: 14px; letter-spacing: 2px;">Stay Connected</h4>
+          <p class="text-white-50" style="font-size: 14px;">Subscribe to receive private invitations to seasonal retreats and culinary events.</p>
+          <form action="#home" method="GET" class="d-flex mt-3">
+            <input type="email" placeholder="Your email address" class="form-control-custom me-2" style="height: 44px; font-size: 13px; background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.2);" required>
+            <button type="submit" class="btn-custom btn-accent" style="height: 44px; padding: 0 16px; font-size: 12px;">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4">
+        <p class="footer-copyright mb-2 mb-md-0">
+          &copy; 2026 Hotel &amp; Spa Adina. All Rights Reserved. Designed for College Evaluation.
+        </p>
+        <div class="d-flex gap-3" style="font-size: 13px;">
+          <a href="#home" class="text-white-50 hover-accent">Privacy Policy</a>
+          <span class="text-white-50">&bull;</span>
+          <a href="#home" class="text-white-50 hover-accent">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript for Responsive Features -->
+  <script src="js/main.js"></script>
+</body>
+</html>

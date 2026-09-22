@@ -1,0 +1,23 @@
+# React and build artifacts (Strictly disallowed in assignment)
+node_modules/
+src/
+public/
+scripts/
+package.json
+package-lock.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+tailwind.config.cjs
+postcss.config.cjs
+eslint.config.js
+vercel.json
+netlify.toml
+LICENSE
+
+# OS & Environment
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
