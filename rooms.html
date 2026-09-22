@@ -16,6 +16,9 @@
       <a href="index.html" class="header-logo">
         <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
       </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
       <nav class="main-nav">
         <a href="index.html" class="nav-link-custom">Home</a>
         <a href="rooms.html" class="nav-link-custom active">Rooms</a>
@@ -46,7 +49,7 @@
           <label for="check-in-date">Check In</label>
           <div class="booking-field-input">
             <span class="booking-field-icon"><i class="bi bi-calendar-check"></i></span>
-            <input type="date" id="check-in-date" value="2026-09-22">
+            <input type="date" id="check-in-date" name="checkIn" value="2026-09-22" required aria-label="Select check-in date">
           </div>
         </div>
 
@@ -54,7 +57,7 @@
           <label for="check-out-date">Check Out</label>
           <div class="booking-field-input">
             <span class="booking-field-icon"><i class="bi bi-calendar-x"></i></span>
-            <input type="date" id="check-out-date" value="2026-09-25">
+            <input type="date" id="check-out-date" name="checkOut" value="2026-09-25" required aria-label="Select check-out date">
           </div>
         </div>
 
@@ -62,7 +65,7 @@
           <label for="adults-count">Adults</label>
           <div class="booking-field-input">
             <span class="booking-field-icon"><i class="bi bi-people"></i></span>
-            <select id="adults-count">
+            <select id="adults-count" name="adults" aria-label="Select adults count">
               <option value="1">1 Adult</option>
               <option value="2" selected>2 Adults</option>
               <option value="3">3 Adults</option>
@@ -75,7 +78,7 @@
           <label for="kids-count">Kids</label>
           <div class="booking-field-input">
             <span class="booking-field-icon"><i class="bi bi-person-hearts"></i></span>
-            <select id="kids-count">
+            <select id="kids-count" name="kids" aria-label="Select kids count">
               <option value="0" selected>0 Kid (No Kid)</option>
               <option value="1">1 Kid</option>
               <option value="2">2 Kids</option>
@@ -396,5 +399,7 @@
     </div>
   </footer>
 
+  <!-- Main JavaScript for Responsive Mobile Navigation -->
+  <script src="js/main.js"></script>
 </body>
 </html>
