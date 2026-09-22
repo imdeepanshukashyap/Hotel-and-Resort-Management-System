@@ -22,11 +22,14 @@
       <a href="index.html" class="header-logo" aria-label="Hotel &amp; Spa Adina Home">
         <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
       </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
       <nav class="main-nav" aria-label="Main Navigation">
         <a href="index.html" class="nav-link-custom">Home</a>
-        <a href="index.html#rooms" class="nav-link-custom active">Rooms</a>
+        <a href="rooms.html" class="nav-link-custom active">Rooms</a>
         <a href="index.html#restaurant" class="nav-link-custom">Restaurant</a>
-        <a href="index.html#spa" class="nav-link-custom">Spa</a>
+        <a href="spa.html" class="nav-link-custom">Spa</a>
         <a href="index.html#contact" class="nav-link-custom">Contact</a>
       </nav>
     </div>
@@ -38,7 +41,7 @@
   <section class="details-hero">
     <div class="hero-overlay"></div>
     <div class="container">
-      <h1 class="details-hero-title">Luxury Suite Room Details</h1>
+      <h1 class="details-hero-title" id="roomHeroTitle">Luxury Suite Room Details</h1>
     </div>
   </section>
 
@@ -51,15 +54,20 @@
         <!-- Left Main Content -->
         <div class="col-12 col-lg-8">
           <article class="room-details-main">
-            <h2>Luxury Suite Room</h2>
-            <p class="lead-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea placeat eos sed voluptas unde veniam eligendi a. Quaerat molestiae hic omnis temporibus quos consequuntur nam voluptatum ea accusamus, corrupti nostrum eum placeat quibusdam quis beatae quae labore earum architecto aliquid debitis.
+            <h2 id="roomTitle">Luxury Suite Room</h2>
+            <div class="d-flex flex-wrap gap-4 my-3 text-muted" id="roomMeta" style="font-size: 15px; font-family: var(--font-secondary);">
+              <span><i class="bi bi-fullscreen text-accent me-1"></i> <span id="roomSize">90m²</span></span>
+              <span><i class="bi bi-people text-accent me-1"></i> <span id="roomGuests">Max 5 guests</span></span>
+              <span><i class="bi bi-moon-stars text-accent me-1"></i> <span id="roomBed">King bed + 2 twin</span></span>
+            </div>
+            <p class="lead-text" id="roomDesc1">
+              Our flagship luxury suite created for extended family getaways and discerning travellers. Features a grand private living salon, a bespoke six-seater dining corner, and a secluded master bedroom suite.
             </p>
 
-            <img src="assets/img/rooms/5-lg.png" alt="Panoramic view of Luxury Suite Room interior" class="room-large-img">
+            <img src="assets/img/rooms/5-lg.png" alt="Panoramic view of Luxury Suite Room interior" class="room-large-img" id="roomImg">
 
-            <p class="lead-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis accusantium sapiente quas quos explicabo, odit nostrum? Reiciendis illum dolor eos dicta. Illum vero at hic nostrum sint et quod porro.
+            <p class="lead-text" id="roomDesc2">
+              Complemented by custom artwork, soundproof architecture, walk-in closets, and personalised round-the-clock concierge services ensuring every moment is unforgettable.
             </p>
 
             <h3 class="facilities-heading">Room Amenities &amp; Facilities</h3>
@@ -149,7 +157,7 @@
                 </div>
               </div>
 
-              <button type="submit" class="btn-custom btn-custom-lg btn-accent w-100">
+              <button type="submit" class="btn-custom btn-custom-lg btn-accent w-100" id="roomBookBtn">
                 Book now for $320
               </button>
             </form>
@@ -237,5 +245,145 @@
     </div>
   </footer>
 
+  <!-- Main JavaScript for Responsive Mobile Navigation -->
+  <script src="js/main.js"></script>
+
+  <!-- Dynamic Room Details Loader Script -->
+  <script>
+    (function () {
+      const roomsData = {
+        1: {
+          name: "Superior Room",
+          size: "30m²",
+          maxPeople: 1,
+          bed: "Queen bed",
+          price: 115,
+          img: "assets/img/rooms/1.png",
+          desc1: "A calm, compact sanctuary designed for solo executives and leisure travellers seeking quiet luxury. Crafted with minimalist elegance, the Superior Room features high ceilings, ambient lighting, and bespoke walnut furniture.",
+          desc2: "Enjoy panoramic skyline views through double-glazed floor-to-ceiling windows, complimentary high-speed fiber Wi-Fi, and a dedicated executive desk designed for effortless productivity."
+        },
+        2: {
+          name: "Signature Room",
+          size: "70m²",
+          maxPeople: 2,
+          bed: "King bed",
+          price: 220,
+          img: "assets/img/rooms/2.png",
+          desc1: "Our signature master retreat offering pure indulgence. Featuring an expansive king-size signature bed draped in 600-thread-count Egyptian cotton, an intimate separate lounge, and handcrafted decor.",
+          desc2: "The centerpiece en-suite bathroom is clad in imported Italian marble, featuring a deep soaking tub, an oversized rain shower, and complimentary luxury botanical amenities."
+        },
+        3: {
+          name: "Deluxe Room",
+          size: "50m²",
+          maxPeople: 3,
+          bed: "King bed + sofa bed",
+          price: 265,
+          img: "assets/img/rooms/3.png",
+          desc1: "A bright, airy escape bathed in natural daylight, featuring a chic modern lounge and direct access to a private landscaped garden terrace. Perfect for small families or close companions travelling together.",
+          desc2: "Unwind on the outdoor terrace with morning espresso, or convert the stylish velvet sofa into an additional bed without compromising on space or comfort."
+        },
+        4: {
+          name: "Luxury Room",
+          size: "50m²",
+          maxPeople: 4,
+          bed: "King bed + twin",
+          price: 289,
+          img: "assets/img/rooms/4.png",
+          desc1: "Wake up to breathtaking panoramic coastal views from your private furnished balcony. Designed with soft mood lighting, organic linen textures, and acoustic insulation for ultimate peace.",
+          desc2: "Includes an ultra-modern dual-vanity bathroom with thermostatic rainfall shower, a fully stocked gourmet minibar, and 24/7 in-room dining privileges."
+        },
+        5: {
+          name: "Luxury Suite Room",
+          size: "90m²",
+          maxPeople: 5,
+          bed: "King bed + 2 twin",
+          price: 320,
+          img: "assets/img/rooms/5-lg.png",
+          desc1: "Our flagship luxury suite created for extended family getaways and discerning travellers. Features a grand private living salon, a bespoke six-seater dining corner, and a secluded master bedroom suite.",
+          desc2: "Complemented by custom artwork, soundproof architecture, walk-in closets, and personalised round-the-clock concierge services ensuring every moment is unforgettable."
+        },
+        6: {
+          name: "Deluxe Room",
+          size: "45m²",
+          maxPeople: 6,
+          bed: "2 double beds",
+          price: 344,
+          img: "assets/img/rooms/6.png",
+          desc1: "Thoughtfully configured for families and traveling groups, offering generous dual double bedding, spacious built-in wardrobes, and dedicated relaxation zones so everyone has room to breathe.",
+          desc2: "Equipped with child-friendly amenities, smart streaming entertainment systems, and quick access to both the resort pool and casual family dining venues."
+        },
+        7: {
+          name: "Luxury Room",
+          size: "84m²",
+          maxPeople: 7,
+          bed: "King bed + 3 twin",
+          price: 389,
+          img: "assets/img/rooms/7.png",
+          desc1: "Perched high on the premier floor, this penthouse-inspired room boasts dramatic sweeping views, soaring ceiling heights, an open executive boardroom lounge, and refined architectural finishes.",
+          desc2: "Guests enjoy complimentary VIP airport transfers, priority reservations at the culinary pavilion, and evening cocktail hours at the rooftop terrace."
+        },
+        8: {
+          name: "Deluxe Room",
+          size: "48m²",
+          maxPeople: 8,
+          bed: "4 double beds",
+          price: 499,
+          img: "assets/img/rooms/8.png",
+          desc1: "Our highest capacity sanctuary, engineered for luxury group journeys, wedding parties, and executive retreats. Features four plush queen/double beds with individual charging docks and reading lights.",
+          desc2: "Includes fast-track VIP check-in, complimentary access to all hydrotherapy thermal suites at the spa, and an allocated private hospitality host throughout your stay."
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const rawId = parseInt(params.get('id'), 10);
+      const roomId = roomsData[rawId] ? rawId : 5;
+      const room = roomsData[roomId];
+
+      document.title = `${room.name} Details | Hotel & Spa Adina`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', `${room.name} Details - Hotel & Spa Adina. Experience ${room.bed}, ${room.size} space, and bespoke luxury amenities.`);
+      }
+
+      const heroTitle = document.getElementById('roomHeroTitle');
+      if (heroTitle) heroTitle.textContent = `${room.name} Details`;
+
+      const titleEl = document.getElementById('roomTitle');
+      if (titleEl) titleEl.textContent = room.name;
+
+      const sizeEl = document.getElementById('roomSize');
+      if (sizeEl) sizeEl.textContent = room.size;
+
+      const guestsEl = document.getElementById('roomGuests');
+      if (guestsEl) guestsEl.textContent = `Max ${room.maxPeople} guest${room.maxPeople > 1 ? 's' : ''}`;
+
+      const bedEl = document.getElementById('roomBed');
+      if (bedEl) bedEl.textContent = room.bed;
+
+      const desc1El = document.getElementById('roomDesc1');
+      if (desc1El) desc1El.textContent = room.desc1;
+
+      const imgEl = document.getElementById('roomImg');
+      if (imgEl) {
+        imgEl.src = room.img;
+        imgEl.alt = `Panoramic view of ${room.name} interior`;
+      }
+
+      const desc2El = document.getElementById('roomDesc2');
+      if (desc2El) desc2El.textContent = room.desc2;
+
+      const bookBtn = document.getElementById('roomBookBtn');
+      if (bookBtn) {
+        bookBtn.textContent = `Book now for $${room.price}`;
+      }
+
+      // Pre-select adults based on maxPeople capacity
+      const adultsSelect = document.getElementById('reservation-adults');
+      if (adultsSelect) {
+        const targetVal = Math.min(Math.max(room.maxPeople, 1), 4).toString();
+        adultsSelect.value = targetVal;
+      }
+    })();
+  </script>
 </body>
 </html>
