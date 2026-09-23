@@ -902,6 +902,68 @@ img {
   backdrop-filter: blur(6px);
 }
 
+/* Culinary Tasting Cards (Contributed by Ayush Tyagi) */
+.culinary-card {
+  background: var(--color-white);
+  border: 1px solid rgba(163, 125, 76, 0.25);
+  padding: 24px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.culinary-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 28px rgba(163, 125, 76, 0.12);
+}
+
+.culinary-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.culinary-card-header h4 {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.culinary-price {
+  font-family: var(--font-tertiary);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.culinary-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.culinary-pairing {
+  font-size: 12px;
+  font-family: var(--font-tertiary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(163, 125, 76, 0.08);
+  padding: 6px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 600;
+}
+
 /* --------------------------------------------------------------------------
    11. SPA & WELLNESS RETREAT SECTION (Contributed by Ayush Tyagi)
    -------------------------------------------------------------------------- */
@@ -1013,6 +1075,26 @@ img {
   padding: 36px 32px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Contact Confirmation Toast / Alert (Contributed by Ayush Tyagi) */
+.contact-alert-success {
+  background: #fdfaf6;
+  border-left: 4px solid var(--color-accent);
+  color: var(--color-primary);
+  padding: 16px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  animation: navFadeDown 0.3s ease-out forwards;
+}
+
+.contact-alert-success h5 {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 4px;
 }
 
 .form-group-custom {

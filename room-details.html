@@ -158,7 +158,7 @@
               </div>
 
               <button type="submit" class="btn-custom btn-custom-lg btn-accent w-100" id="roomBookBtn">
-                Book now for $320
+                Book now for rs.320
               </button>
             </form>
           </div>
@@ -339,14 +339,14 @@
       const roomId = roomsData[rawId] ? rawId : 5;
       const room = roomsData[roomId];
 
-      document.title = `${room.name} Details | Hotel & Spa Adina`;
+      document.title = room.name + ' Details | Hotel & Spa Adina';
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', `${room.name} Details - Hotel & Spa Adina. Experience ${room.bed}, ${room.size} space, and bespoke luxury amenities.`);
+        metaDesc.setAttribute('content', room.name + ' Details - Hotel & Spa Adina. Experience ' + room.bed + ', ' + room.size + ' space, and bespoke luxury amenities.');
       }
 
       const heroTitle = document.getElementById('roomHeroTitle');
-      if (heroTitle) heroTitle.textContent = `${room.name} Details`;
+      if (heroTitle) heroTitle.textContent = room.name + ' Details';
 
       const titleEl = document.getElementById('roomTitle');
       if (titleEl) titleEl.textContent = room.name;
@@ -355,7 +355,7 @@
       if (sizeEl) sizeEl.textContent = room.size;
 
       const guestsEl = document.getElementById('roomGuests');
-      if (guestsEl) guestsEl.textContent = `Max ${room.maxPeople} guest${room.maxPeople > 1 ? 's' : ''}`;
+      if (guestsEl) guestsEl.textContent = 'Max ' + room.maxPeople + ' guest' + (room.maxPeople > 1 ? 's' : '');
 
       const bedEl = document.getElementById('roomBed');
       if (bedEl) bedEl.textContent = room.bed;
@@ -366,7 +366,7 @@
       const imgEl = document.getElementById('roomImg');
       if (imgEl) {
         imgEl.src = room.img;
-        imgEl.alt = `Panoramic view of ${room.name} interior`;
+        imgEl.alt = 'Panoramic view of ' + room.name + ' interior';
       }
 
       const desc2El = document.getElementById('roomDesc2');
@@ -374,7 +374,7 @@
 
       const bookBtn = document.getElementById('roomBookBtn');
       if (bookBtn) {
-        bookBtn.textContent = `Book now for $${room.price}`;
+        bookBtn.textContent = 'Book now for rs.' + room.price;
       }
 
       // Pre-select adults based on maxPeople capacity
