@@ -346,3 +346,32 @@
     padding: 0 16px;
   }
 }
+.room-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.room-filter-btn {
+  font-family: var(--font-tertiary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid rgba(163, 125, 76, 0.4);
+  height: 44px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.room-filter-btn:hover,
+.room-filter-btn.active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
