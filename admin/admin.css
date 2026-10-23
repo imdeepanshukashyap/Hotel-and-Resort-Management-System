@@ -156,3 +156,6 @@ body:has(#panel-settings:target) #title-settings{display:inline}
 @media(max-width:900px){.two-col,.three-col{grid-template-columns:1fr}}
 @media(max-width:768px){:root{--sidebar-w:0px}.admin-sidebar{display:none}.admin-main{margin-left:0}.stats-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.stats-grid{grid-template-columns:1fr}}
+
+/* rooms table hover state - added 23 Oct */
+.admin-table tr.room-row-highlight td { background: rgba(201,169,110,0.04); }
