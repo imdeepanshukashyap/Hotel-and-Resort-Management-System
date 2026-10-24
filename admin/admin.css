@@ -159,3 +159,7 @@ body:has(#panel-settings:target) #title-settings{display:inline}
 
 /* rooms table hover state - added 23 Oct */
 .admin-table tr.room-row-highlight td { background: rgba(201,169,110,0.04); }
+
+/* bookings and spa panels - polish added 24 Oct */
+.panel-heading-accent { border-left: 3px solid var(--gold); padding-left: .8rem; }
+.spa-schedule-row td:first-child { font-variant-numeric: tabular-nums; }
