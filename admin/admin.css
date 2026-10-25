@@ -163,3 +163,8 @@ body:has(#panel-settings:target) #title-settings{display:inline}
 /* bookings and spa panels - polish added 24 Oct */
 .panel-heading-accent { border-left: 3px solid var(--gold); padding-left: .8rem; }
 .spa-schedule-row td:first-child { font-variant-numeric: tabular-nums; }
+
+/* messages inbox unread glow - added 25 Oct */
+.msg-item.msg-unread { background: rgba(201,169,110,0.03); border-radius: var(--radius-sm); padding-left: .5rem; margin-left: -.5rem; }
+/* settings toggle cursor fix */
+.toggle-switch { cursor: default; }
