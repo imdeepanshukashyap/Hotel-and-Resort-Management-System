@@ -1,7 +1,992 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Admin Panel | Hotel &amp; Spa Adina</title><meta name="description" content="Internal admin dashboard for Hotel &amp; Spa Adina staff."/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/><link rel="stylesheet" href="admin.css"/></head><body><aside class="admin-sidebar"><div class="sidebar-brand"><div class="sidebar-brand-name">Hotel <span>&amp;</span> Spa Adina</div><div class="sidebar-brand-sub">Admin Panel</div></div><nav class="sidebar-nav"><div class="sidebar-section-label">Main</div><a href="#panel-dashboard" class="sidebar-link link-dashboard"><i class="bi bi-grid-1x2"></i> Dashboard</a><a href="#panel-rooms" class="sidebar-link link-rooms"><i class="bi bi-door-open"></i> Rooms</a><a href="#panel-bookings" class="sidebar-link link-bookings"><i class="bi bi-calendar-check"></i> Bookings</a><a href="#panel-spa" class="sidebar-link link-spa"><i class="bi bi-flower1"></i> Spa &amp; Wellness</a><a href="#panel-messages" class="sidebar-link link-messages"><i class="bi bi-chat-dots"></i> Guest Messages <span class="badge badge-gold" style="margin-left:auto;padding:.1rem .5rem;font-size:.62rem">5</span></a><div class="sidebar-section-label">System</div><a href="#panel-settings" class="sidebar-link link-settings"><i class="bi bi-gear"></i> Settings</a></nav><div class="sidebar-footer"><div class="sidebar-user"><div class="sidebar-avatar">DK</div><div><div class="sidebar-user-name">Deepanshu Kashyap</div><div class="sidebar-user-role">Admin</div></div></div></div><a href="../index.html" class="back-to-site"><i class="bi bi-arrow-left-short"></i> Back to Website</a></aside><div class="admin-main"><header class="admin-topbar"><div class="topbar-title"><span id="title-dashboard">Dashboard</span><span id="title-rooms">Rooms</span><span id="title-bookings">Bookings</span><span id="title-spa">Spa &amp; Wellness</span><span id="title-messages">Guest Messages</span><span id="title-settings">Settings</span></div><div class="topbar-actions"><div class="topbar-live"><span class="live-dot"></span> Live</div><div class="topbar-date">Tue, 21 Oct 2026</div><a href="#panel-messages" class="topbar-badge"><i class="bi bi-chat-dots"></i><span class="badge-dot"></span></a><a href="#panel-settings" class="topbar-badge"><i class="bi bi-gear"></i></a></div></header><main class="admin-content">
-<div id="panel-dashboard"><div class="page-header"><h1>Good morning, Deepanshu</h1><p>Here is what is happening at Hotel &amp; Spa Adina today</p></div><div class="stats-grid"><div class="stat-card"><div class="stat-icon gold"><i class="bi bi-door-open"></i></div><div class="stat-body"><div class="stat-label">Occupied Rooms</div><div class="stat-value">6 / 8</div><div class="stat-sub"><span class="up">75%</span> occupancy today</div></div></div><div class="stat-card"><div class="stat-icon green"><i class="bi bi-calendar-check"></i></div><div class="stat-body"><div class="stat-label">Bookings This Week</div><div class="stat-value">24</div><div class="stat-sub"><span class="up">+3</span> from last week</div></div></div><div class="stat-card"><div class="stat-icon blue"><i class="bi bi-flower1"></i></div><div class="stat-body"><div class="stat-label">Spa Sessions Today</div><div class="stat-value">9</div><div class="stat-sub"><span class="up">2 upcoming</span> this evening</div></div></div><div class="stat-card"><div class="stat-icon orange"><i class="bi bi-chat-dots"></i></div><div class="stat-body"><div class="stat-label">Pending Messages</div><div class="stat-value">5</div><div class="stat-sub"><span class="down">3 need reply</span></div></div></div><div class="stat-card"><div class="stat-icon gold"><i class="bi bi-currency-rupee"></i></div><div class="stat-body"><div class="stat-label">Revenue Today</div><div class="stat-value">rs.4,870</div><div class="stat-sub"><span class="up">+12%</span> vs yesterday</div></div></div></div><div class="two-col" style="margin-bottom:1.5rem"><div class="card"><div class="card-header"><h2><i class="bi bi-calendar-week" style="color:var(--gold);margin-right:.4rem"></i> Recent Bookings</h2><a href="#panel-bookings" class="btn-admin btn-outline">View All</a></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Guest</th><th>Room</th><th>Check-in</th><th>Status</th></tr></thead><tbody><tr><td><strong>Priya Sharma</strong><br/><small style="color:var(--muted)">2 guests</small></td><td>Signature Room</td><td>21 Oct</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td><strong>Rahul Mehta</strong><br/><small style="color:var(--muted)">1 guest</small></td><td>Superior Room</td><td>21 Oct</td><td><span class="badge badge-warning">Pending</span></td></tr><tr><td><strong>Ananya Joshi</strong><br/><small style="color:var(--muted)">4 guests</small></td><td>Luxury Room</td><td>22 Oct</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td><strong>Vikram Nair</strong><br/><small style="color:var(--muted)">5 guests</small></td><td>Luxury Suite</td><td>23 Oct</td><td><span class="badge badge-info">New</span></td></tr></tbody></table></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-bar-chart" style="color:var(--gold);margin-right:.4rem"></i> Room Occupancy</h2><span class="badge badge-gold">Today</span></div><div class="card-body"><div class="donut-wrap" style="margin-bottom:1.5rem"><div class="donut"></div><div class="donut-legend"><div class="donut-item"><div class="donut-color" style="background:var(--gold)"></div>Occupied (6)</div><div class="donut-item"><div class="donut-color" style="background:var(--info)"></div>Reserved (1)</div><div class="donut-item"><div class="donut-color" style="background:var(--success)"></div>Cleaning (0)</div><div class="donut-item"><div class="donut-color" style="background:var(--bg3)"></div>Available (1)</div></div></div><div style="display:flex;flex-direction:column;gap:.9rem"><div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem"><span>Luxury Suite</span><span style="color:var(--gold)">100%</span></div><div class="occ-bar"><div class="occ-fill" style="width:100%"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem"><span>Signature Room</span><span style="color:var(--gold)">80%</span></div><div class="occ-bar"><div class="occ-fill" style="width:80%"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem"><span>Superior Room</span><span style="color:var(--muted)">50%</span></div><div class="occ-bar"><div class="occ-fill" style="width:50%;background:var(--info)"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem"><span>Deluxe Room</span><span style="color:var(--success)">25%</span></div><div class="occ-bar"><div class="occ-fill" style="width:25%;background:var(--success)"></div></div></div></div></div></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-activity" style="color:var(--gold);margin-right:.4rem"></i> Recent Activity</h2></div><div class="card-body"><div class="activity-item"><div class="activity-dot gold"></div><div class="activity-body"><div class="activity-text"><strong>Priya Sharma</strong> checked in to Signature Room</div><div class="activity-time">10:14 AM</div></div></div><div class="activity-item"><div class="activity-dot blue"></div><div class="activity-body"><div class="activity-text">New booking from <strong>Vikram Nair</strong> — Luxury Suite, 23 Oct</div><div class="activity-time">9:52 AM</div></div></div><div class="activity-item"><div class="activity-dot green"></div><div class="activity-body"><div class="activity-text">Spa session confirmed — <strong>Couples Escape</strong> at 3:00 PM</div><div class="activity-time">9:30 AM</div></div></div><div class="activity-item"><div class="activity-dot gold"></div><div class="activity-body"><div class="activity-text"><strong>Room 7</strong> housekeeping completed — marked Available</div><div class="activity-time">8:45 AM</div></div></div><div class="activity-item"><div class="activity-dot red"></div><div class="activity-body"><div class="activity-text">Unread message from <strong>Deepa Roy</strong> — dinner reservation enquiry</div><div class="activity-time">8:12 AM</div></div></div></div></div></div>
-<div id="panel-rooms"><div class="page-header"><h1>Rooms Management</h1><p>All 8 rooms — live availability, rates, and status</p></div><div class="stats-grid" style="grid-template-columns:repeat(4,1fr)"><div class="stat-card"><div class="stat-icon gold"><i class="bi bi-check-circle"></i></div><div class="stat-body"><div class="stat-label">Available</div><div class="stat-value">2</div></div></div><div class="stat-card"><div class="stat-icon blue"><i class="bi bi-person-fill"></i></div><div class="stat-body"><div class="stat-label">Occupied</div><div class="stat-value">6</div></div></div><div class="stat-card"><div class="stat-icon orange"><i class="bi bi-tools"></i></div><div class="stat-body"><div class="stat-label">Maintenance</div><div class="stat-value">0</div></div></div><div class="stat-card"><div class="stat-icon green"><i class="bi bi-star"></i></div><div class="stat-body"><div class="stat-label">Avg Rating</div><div class="stat-value">4.7</div></div></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-door-open" style="color:var(--gold);margin-right:.4rem"></i> All Rooms</h2><a href="../rooms.html" target="_blank" class="btn-admin btn-outline"><i class="bi bi-eye"></i> View Public Page</a></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>ID</th><th>Room Name</th><th>Size</th><th>Capacity</th><th>Bed Type</th><th>Rate / Night</th><th>Status</th><th>This Week Occupancy</th></tr></thead><tbody><tr><td style="color:var(--muted)">#R01</td><td><strong>Superior Room</strong></td><td>30 m2</td><td>1 guest</td><td>Queen bed</td><td style="color:var(--gold);font-weight:600">rs.115</td><td><span class="badge badge-success">Available</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:40%"></div></div><span class="occ-label">40%</span></div></td></tr><tr><td style="color:var(--muted)">#R02</td><td><strong>Signature Room</strong></td><td>70 m2</td><td>2 guests</td><td>King bed</td><td style="color:var(--gold);font-weight:600">rs.220</td><td><span class="badge badge-info">Occupied</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:80%"></div></div><span class="occ-label">80%</span></div></td></tr><tr><td style="color:var(--muted)">#R03</td><td><strong>Deluxe Room</strong></td><td>50 m2</td><td>3 guests</td><td>King + sofa</td><td style="color:var(--gold);font-weight:600">rs.265</td><td><span class="badge badge-info">Occupied</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:70%"></div></div><span class="occ-label">70%</span></div></td></tr><tr><td style="color:var(--muted)">#R04</td><td><strong>Luxury Room</strong></td><td>50 m2</td><td>4 guests</td><td>King + twin</td><td style="color:var(--gold);font-weight:600">rs.289</td><td><span class="badge badge-info">Occupied</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:90%"></div></div><span class="occ-label">90%</span></div></td></tr><tr><td style="color:var(--muted)">#R05</td><td><strong>Luxury Suite</strong></td><td>90 m2</td><td>5 guests</td><td>King + 2 twin</td><td style="color:var(--gold);font-weight:600">rs.320</td><td><span class="badge badge-info">Occupied</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:100%"></div></div><span class="occ-label">100%</span></div></td></tr><tr><td style="color:var(--muted)">#R06</td><td><strong>Deluxe Family Room</strong></td><td>45 m2</td><td>6 guests</td><td>2 double beds</td><td style="color:var(--gold);font-weight:600">rs.344</td><td><span class="badge badge-success">Available</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:25%;background:var(--success)"></div></div><span class="occ-label">25%</span></div></td></tr><tr><td style="color:var(--muted)">#R07</td><td><strong>Penthouse Room</strong></td><td>84 m2</td><td>7 guests</td><td>King + 3 twin</td><td style="color:var(--gold);font-weight:600">rs.389</td><td><span class="badge badge-info">Occupied</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:60%"></div></div><span class="occ-label">60%</span></div></td></tr><tr><td style="color:var(--muted)">#R08</td><td><strong>Grand Group Suite</strong></td><td>48 m2</td><td>8 guests</td><td>4 double beds</td><td style="color:var(--gold);font-weight:600">rs.499</td><td><span class="badge badge-info">Occupied</span></td><td><div class="occ-bar-wrap"><div class="occ-bar"><div class="occ-fill" style="width:75%"></div></div><span class="occ-label">75%</span></div></td></tr></tbody></table></div></div></div>
-<div id="panel-bookings"><div class="page-header"><h1>Bookings</h1><p>All confirmed, pending, and past reservations</p></div><div class="stats-grid" style="grid-template-columns:repeat(4,1fr)"><div class="stat-card"><div class="stat-icon green"><i class="bi bi-check2-circle"></i></div><div class="stat-body"><div class="stat-label">Confirmed</div><div class="stat-value">18</div></div></div><div class="stat-card"><div class="stat-icon orange"><i class="bi bi-clock"></i></div><div class="stat-body"><div class="stat-label">Pending</div><div class="stat-value">4</div></div></div><div class="stat-card"><div class="stat-icon red"><i class="bi bi-x-circle"></i></div><div class="stat-body"><div class="stat-label">Cancelled</div><div class="stat-value">2</div></div></div><div class="stat-card"><div class="stat-icon blue"><i class="bi bi-arrow-right-circle"></i></div><div class="stat-body"><div class="stat-label">Check-outs Today</div><div class="stat-value">3</div></div></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-calendar-check" style="color:var(--gold);margin-right:.4rem"></i> All Reservations</h2></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Booking ID</th><th>Guest Name</th><th>Room</th><th>Check-in</th><th>Check-out</th><th>Guests</th><th>Total</th><th>Status</th></tr></thead><tbody><tr><td style="color:var(--muted)">#BK-2601</td><td><strong>Priya Sharma</strong></td><td>Signature Room</td><td>21 Oct</td><td>24 Oct</td><td>2</td><td style="color:var(--gold);font-weight:600">rs.660</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td style="color:var(--muted)">#BK-2602</td><td><strong>Rahul Mehta</strong></td><td>Superior Room</td><td>21 Oct</td><td>22 Oct</td><td>1</td><td style="color:var(--gold);font-weight:600">rs.115</td><td><span class="badge badge-warning">Pending</span></td></tr><tr><td style="color:var(--muted)">#BK-2603</td><td><strong>Ananya Joshi</strong></td><td>Luxury Room</td><td>22 Oct</td><td>25 Oct</td><td>4</td><td style="color:var(--gold);font-weight:600">rs.1,156</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td style="color:var(--muted)">#BK-2604</td><td><strong>Vikram Nair</strong></td><td>Luxury Suite</td><td>23 Oct</td><td>28 Oct</td><td>5</td><td style="color:var(--gold);font-weight:600">rs.1,920</td><td><span class="badge badge-info">New</span></td></tr><tr><td style="color:var(--muted)">#BK-2605</td><td><strong>Sunita Kapoor</strong></td><td>Deluxe Family</td><td>24 Oct</td><td>26 Oct</td><td>6</td><td style="color:var(--gold);font-weight:600">rs.688</td><td><span class="badge badge-warning">Pending</span></td></tr><tr><td style="color:var(--muted)">#BK-2606</td><td><strong>Arjun Rathi</strong></td><td>Penthouse Room</td><td>25 Oct</td><td>27 Oct</td><td>3</td><td style="color:var(--gold);font-weight:600">rs.778</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td style="color:var(--muted)">#BK-2598</td><td><strong>Deepa Roy</strong></td><td>Deluxe Room</td><td>18 Oct</td><td>21 Oct</td><td>2</td><td style="color:var(--gold);font-weight:600">rs.795</td><td><span class="badge badge-muted">Checked out</span></td></tr><tr><td style="color:var(--muted)">#BK-2597</td><td><strong>Kartik Sen</strong></td><td>Grand Group Suite</td><td>13 Oct</td><td>17 Oct</td><td>8</td><td style="color:var(--gold);font-weight:600">rs.1,996</td><td><span class="badge badge-danger">Cancelled</span></td></tr></tbody></table></div></div></div>
-<div id="panel-spa"><div class="page-header"><h1>Spa and Wellness</h1><p>Treatment schedule, packages, and therapist availability</p></div><div class="stats-grid" style="grid-template-columns:repeat(4,1fr)"><div class="stat-card"><div class="stat-icon blue"><i class="bi bi-calendar2-week"></i></div><div class="stat-body"><div class="stat-label">Sessions Today</div><div class="stat-value">9</div></div></div><div class="stat-card"><div class="stat-icon gold"><i class="bi bi-heart"></i></div><div class="stat-body"><div class="stat-label">Couples Packages</div><div class="stat-value">2</div></div></div><div class="stat-card"><div class="stat-icon green"><i class="bi bi-person-check"></i></div><div class="stat-body"><div class="stat-label">Therapists On Duty</div><div class="stat-value">4</div></div></div><div class="stat-card"><div class="stat-icon orange"><i class="bi bi-currency-rupee"></i></div><div class="stat-body"><div class="stat-label">Spa Revenue Today</div><div class="stat-value">rs.1,490</div></div></div></div><div class="two-col"><div class="card"><div class="card-header"><h2><i class="bi bi-clock" style="color:var(--gold);margin-right:.4rem"></i> Today Schedule</h2></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Time</th><th>Treatment</th><th>Guest</th><th>Duration</th><th>Status</th></tr></thead><tbody><tr><td style="color:var(--gold);font-weight:600">9:00 AM</td><td>Swedish Massage</td><td>Priya S.</td><td>60 min</td><td><span class="badge badge-muted">Done</span></td></tr><tr><td style="color:var(--gold);font-weight:600">10:30 AM</td><td>Hydrating Facial</td><td>Ananya J.</td><td>45 min</td><td><span class="badge badge-muted">Done</span></td></tr><tr><td style="color:var(--gold);font-weight:600">12:00 PM</td><td>Hot Stone Massage</td><td>Rahul M.</td><td>75 min</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td style="color:var(--gold);font-weight:600">2:00 PM</td><td>Body Scrub</td><td>Sunita K.</td><td>40 min</td><td><span class="badge badge-success">Confirmed</span></td></tr><tr><td style="color:var(--gold);font-weight:600">3:00 PM</td><td>Couples Escape</td><td>Vikram and Mrs Nair</td><td>75 min</td><td><span class="badge badge-info">Upcoming</span></td></tr><tr><td style="color:var(--gold);font-weight:600">5:00 PM</td><td>Thermal Pool</td><td>Arjun R.</td><td>90 min</td><td><span class="badge badge-info">Upcoming</span></td></tr></tbody></table></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-star" style="color:var(--gold);margin-right:.4rem"></i> Package Bookings</h2><a href="../spa.html" target="_blank" class="btn-admin btn-outline"><i class="bi bi-eye"></i> Spa Page</a></div><div class="card-body"><div style="display:flex;flex-direction:column;gap:1.2rem"><div><div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem"><span><strong>Couples Escape</strong></span><span style="color:var(--gold)">12 bookings</span></div><div class="occ-bar"><div class="occ-fill" style="width:85%"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem"><span><strong>Relax and Renew</strong></span><span style="color:var(--info)">8 bookings</span></div><div class="occ-bar"><div class="occ-fill" style="width:57%;background:var(--info)"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem"><span><strong>Ultimate Wellness Day</strong></span><span style="color:var(--success)">4 bookings</span></div><div class="occ-bar"><div class="occ-fill" style="width:29%;background:var(--success)"></div></div></div></div><div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border)"><div class="stat-label" style="margin-bottom:.8rem">Therapist Availability</div><div style="display:flex;flex-direction:column;gap:.6rem"><div style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem"><span>Dr. Meera Singh</span><span class="badge badge-success">Available</span></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem"><span>Ravi Kumar</span><span class="badge badge-warning">In Session</span></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem"><span>Kavya Nair</span><span class="badge badge-warning">In Session</span></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem"><span>Anil Sharma</span><span class="badge badge-success">Available</span></div></div></div></div></div></div></div>
-<div id="panel-messages"><div class="page-header"><h1>Guest Messages</h1><p>All enquiries submitted through the website contact form</p></div><div class="two-col" style="margin-bottom:1.5rem"><div class="stat-card"><div class="stat-icon gold"><i class="bi bi-envelope"></i></div><div class="stat-body"><div class="stat-label">Total Messages</div><div class="stat-value">5</div><div class="stat-sub">This week</div></div></div><div class="stat-card"><div class="stat-icon orange"><i class="bi bi-exclamation-circle"></i></div><div class="stat-body"><div class="stat-label">Awaiting Reply</div><div class="stat-value">3</div><div class="stat-sub"><span class="down">Reply within 2 hours</span></div></div></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-chat-dots" style="color:var(--gold);margin-right:.4rem"></i> Inbox</h2><span class="badge badge-warning">3 unread</span></div><div class="card-body"><div class="msg-item msg-unread"><div class="msg-avatar">DR</div><div style="flex:1"><div><span class="msg-name">Deepa Roy</span><span class="msg-time">21 Oct, 8:12 AM</span><span class="badge badge-warning" style="margin-left:.5rem;font-size:.62rem">Unread</span></div><div class="msg-text">Hi, I was hoping to book a dinner reservation for tomorrow evening for 4 people. Do you have availability at the rooftop restaurant?</div><div style="margin-top:.5rem;display:flex;gap:.5rem"><a href="mailto:hello@hotelaadina.in" class="btn-admin btn-gold" style="font-size:.72rem"><i class="bi bi-reply"></i> Reply</a><span class="badge badge-muted">Dining</span></div></div></div><div class="msg-item msg-unread"><div class="msg-avatar blue">SK</div><div style="flex:1"><div><span class="msg-name">Sunita Kapoor</span><span class="msg-time">21 Oct, 7:45 AM</span><span class="badge badge-warning" style="margin-left:.5rem;font-size:.62rem">Unread</span></div><div class="msg-text">We would like to extend our stay by 2 nights. Is the Deluxe Family Room still available? Please confirm the extended rate.</div><div style="margin-top:.5rem;display:flex;gap:.5rem"><a href="mailto:hello@hotelaadina.in" class="btn-admin btn-gold" style="font-size:.72rem"><i class="bi bi-reply"></i> Reply</a><span class="badge badge-muted">Room Booking</span></div></div></div><div class="msg-item msg-unread"><div class="msg-avatar green">AR</div><div style="flex:1"><div><span class="msg-name">Arjun Rathi</span><span class="msg-time">20 Oct, 6:30 PM</span><span class="badge badge-warning" style="margin-left:.5rem;font-size:.62rem">Unread</span></div><div class="msg-text">Can I add the Ultimate Wellness Day spa package to my stay? I arrive on 25 Oct and would like to book it for the afternoon.</div><div style="margin-top:.5rem;display:flex;gap:.5rem"><a href="mailto:hello@hotelaadina.in" class="btn-admin btn-gold" style="font-size:.72rem"><i class="bi bi-reply"></i> Reply</a><span class="badge badge-muted">Spa</span></div></div></div><div class="msg-item"><div class="msg-avatar orange">VN</div><div style="flex:1"><div><span class="msg-name">Vikram Nair</span><span class="msg-time">20 Oct, 2:15 PM</span><span class="badge badge-success" style="margin-left:.5rem;font-size:.62rem">Replied</span></div><div class="msg-text">Thank you for confirming my Luxury Suite booking. Could you arrange airport pickup on 23 Oct at 4 PM from IGI?</div><div style="margin-top:.5rem"><span class="badge badge-muted">Room Booking</span></div></div></div><div class="msg-item"><div class="msg-avatar">PS</div><div style="flex:1"><div><span class="msg-name">Priya Sharma</span><span class="msg-time">20 Oct, 11:00 AM</span><span class="badge badge-success" style="margin-left:.5rem;font-size:.62rem">Replied</span></div><div class="msg-text">We had an amazing stay! The Signature Room was beautiful. Will definitely be coming back. Please add us to the newsletter.</div><div style="margin-top:.5rem"><span class="badge badge-muted">Feedback</span></div></div></div></div></div></div>
-<div id="panel-settings"><div class="page-header"><h1>Settings</h1><p>Hotel profile, notifications, and team access</p></div><div class="two-col"><div class="card"><div class="card-header"><h2><i class="bi bi-building" style="color:var(--gold);margin-right:.4rem"></i> Hotel Information</h2></div><div class="card-body"><div class="setting-row"><div><div class="setting-label">Hotel Name</div><div class="setting-desc">Shown across the site header and footer</div></div><div class="setting-control"><input class="setting-input" type="text" value="Hotel and Spa Adina" readonly/></div></div><div class="setting-row"><div><div class="setting-label">Contact Email</div><div class="setting-desc">Guest-facing email address</div></div><div class="setting-control"><input class="setting-input" type="email" value="hello@hotelaadina.in" readonly/></div></div><div class="setting-row"><div><div class="setting-label">Phone</div><div class="setting-desc">Reception direct line</div></div><div class="setting-control"><input class="setting-input" type="tel" value="+91 11 2345 6789" readonly/></div></div><div class="setting-row"><div><div class="setting-label">Address</div><div class="setting-desc">Physical location</div></div><div class="setting-control"><input class="setting-input" type="text" value="12 Luxury Lane, New Delhi" readonly/></div></div><div class="setting-row"><div><div class="setting-label">Currency</div><div class="setting-desc">Used across all price displays</div></div><div class="setting-control"><input class="setting-input" type="text" value="INR (rs.)" readonly/></div></div></div></div><div><div class="card" style="margin-bottom:1.5rem"><div class="card-header"><h2><i class="bi bi-bell" style="color:var(--gold);margin-right:.4rem"></i> Notifications</h2></div><div class="card-body"><div class="setting-row"><div><div class="setting-label">New Booking Alerts</div><div class="setting-desc">Notify when a new reservation arrives</div></div><div class="setting-control"><div class="toggle-switch on"></div></div></div><div class="setting-row"><div><div class="setting-label">Guest Messages</div><div class="setting-desc">Alert on new contact form submissions</div></div><div class="setting-control"><div class="toggle-switch on"></div></div></div><div class="setting-row"><div><div class="setting-label">Spa Session Reminders</div><div class="setting-desc">15 min reminder before each session</div></div><div class="setting-control"><div class="toggle-switch on"></div></div></div><div class="setting-row"><div><div class="setting-label">Daily Revenue Report</div><div class="setting-desc">Email summary at 11 PM nightly</div></div><div class="setting-control"><div class="toggle-switch"></div></div></div></div></div><div class="card"><div class="card-header"><h2><i class="bi bi-people" style="color:var(--gold);margin-right:.4rem"></i> Team Access</h2></div><div class="card-body"><div style="display:flex;flex-direction:column;gap:.8rem"><div style="display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:.7rem"><div class="sidebar-avatar" style="width:30px;height:30px;font-size:.7rem">DK</div><div><div style="font-size:.85rem;font-weight:600">Deepanshu Kashyap</div><div style="font-size:.72rem;color:var(--muted)">Admin - Lead</div></div></div><span class="badge badge-gold">Admin</span></div><div style="display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:.7rem"><div class="sidebar-avatar" style="width:30px;height:30px;font-size:.7rem;background:linear-gradient(135deg,var(--info),#2563eb);color:#fff">AG</div><div><div style="font-size:.85rem;font-weight:600">Ayush Gupta</div><div style="font-size:.72rem;color:var(--muted)">UI - Rooms and Spa</div></div></div><span class="badge badge-info">Editor</span></div><div style="display:flex;align-items:center;justify-content:space-between"><div style="display:flex;align-items:center;gap:.7rem"><div class="sidebar-avatar" style="width:30px;height:30px;font-size:.7rem;background:linear-gradient(135deg,var(--success),#059669);color:#fff">AT</div><div><div style="font-size:.85rem;font-weight:600">Ayush Tyagi</div><div style="font-size:.72rem;color:var(--muted)">Dining and Contact</div></div></div><span class="badge badge-success">Editor</span></div></div></div></div></div></div></div></main></div></body></html>
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Admin Panel | Hotel &amp; Spa Adina</title>
+    <meta name="description" content="Internal admin dashboard for Hotel &amp; Spa Adina staff." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+    <aside class="admin-sidebar">
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-name">Hotel <span>&amp;</span> Spa Adina</div>
+            <div class="sidebar-brand-sub">Admin Panel</div>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="sidebar-section-label">Main</div><a href="#panel-dashboard"
+                class="sidebar-link link-dashboard"><i class="bi bi-grid-1x2"></i> Dashboard</a><a href="#panel-rooms"
+                class="sidebar-link link-rooms"><i class="bi bi-door-open"></i> Rooms</a><a href="#panel-bookings"
+                class="sidebar-link link-bookings"><i class="bi bi-calendar-check"></i> Bookings</a><a href="#panel-spa"
+                class="sidebar-link link-spa"><i class="bi bi-flower1"></i> Spa &amp; Wellness</a><a
+                href="#panel-messages" class="sidebar-link link-messages"><i class="bi bi-chat-dots"></i> Guest Messages
+                <span class="badge badge-gold"
+                    style="margin-left:auto;padding:.1rem .5rem;font-size:.62rem">5</span></a>
+            <div class="sidebar-section-label">System</div><a href="#panel-settings"
+                class="sidebar-link link-settings"><i class="bi bi-gear"></i> Settings</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="sidebar-avatar">DK</div>
+                <div>
+                    <div class="sidebar-user-name">Deepanshu Kashyap</div>
+                    <div class="sidebar-user-role">Admin</div>
+                </div>
+            </div>
+        </div><a href="../index.html" class="back-to-site"><i class="bi bi-arrow-left-short"></i> Back to Website</a>
+    </aside>
+    <div class="admin-main">
+        <header class="admin-topbar">
+            <div class="topbar-title"><span id="title-dashboard">Dashboard</span><span
+                    id="title-rooms">Rooms</span><span id="title-bookings">Bookings</span><span id="title-spa">Spa &amp;
+                    Wellness</span><span id="title-messages">Guest Messages</span><span
+                    id="title-settings">Settings</span></div>
+            <div class="topbar-actions">
+                <div class="topbar-live"><span class="live-dot"></span> Live</div>
+                <div class="topbar-date">Tue, 21 Oct 2026</div><a href="#panel-messages" class="topbar-badge"><i
+                        class="bi bi-chat-dots"></i><span class="badge-dot"></span></a><a href="#panel-settings"
+                    class="topbar-badge"><i class="bi bi-gear"></i></a>
+            </div>
+        </header>
+        <main class="admin-content">
+            <div id="panel-dashboard">
+                <div class="page-header">
+                    <h1>Good morning, Deepanshu</h1>
+                    <p>Here is what is happening at Hotel &amp; Spa Adina today</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="bi bi-door-open"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Occupied Rooms</div>
+                            <div class="stat-value">6 / 8</div>
+                            <div class="stat-sub"><span class="up">75%</span> occupancy today</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-calendar-check"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Bookings This Week</div>
+                            <div class="stat-value">24</div>
+                            <div class="stat-sub"><span class="up">+3</span> from last week</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="bi bi-flower1"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Spa Sessions Today</div>
+                            <div class="stat-value">9</div>
+                            <div class="stat-sub"><span class="up">2 upcoming</span> this evening</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="bi bi-chat-dots"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Pending Messages</div>
+                            <div class="stat-value">5</div>
+                            <div class="stat-sub"><span class="down">3 need reply</span></div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="bi bi-currency-rupee"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Revenue Today</div>
+                            <div class="stat-value">rs.4,870</div>
+                            <div class="stat-sub"><span class="up">+12%</span> vs yesterday</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-col" style="margin-bottom:1.5rem">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-calendar-week" style="color:var(--gold);margin-right:.4rem"></i> Recent
+                                Bookings</h2><a href="#panel-bookings" class="btn-admin btn-outline">View All</a>
+                        </div>
+                        <div class="admin-table-wrap">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Guest</th>
+                                        <th>Room</th>
+                                        <th>Check-in</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Priya Sharma</strong><br /><small style="color:var(--muted)">2
+                                                guests</small></td>
+                                        <td>Signature Room</td>
+                                        <td>21 Oct</td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Rahul Mehta</strong><br /><small style="color:var(--muted)">1
+                                                guest</small></td>
+                                        <td>Superior Room</td>
+                                        <td>21 Oct</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ananya Joshi</strong><br /><small style="color:var(--muted)">4
+                                                guests</small></td>
+                                        <td>Luxury Room</td>
+                                        <td>22 Oct</td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Vikram Nair</strong><br /><small style="color:var(--muted)">5
+                                                guests</small></td>
+                                        <td>Luxury Suite</td>
+                                        <td>23 Oct</td>
+                                        <td><span class="badge badge-info">New</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-bar-chart" style="color:var(--gold);margin-right:.4rem"></i> Room
+                                Occupancy</h2><span class="badge badge-gold">Today</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="donut-wrap" style="margin-bottom:1.5rem">
+                                <div class="donut"></div>
+                                <div class="donut-legend">
+                                    <div class="donut-item">
+                                        <div class="donut-color" style="background:var(--gold)"></div>Occupied (6)
+                                    </div>
+                                    <div class="donut-item">
+                                        <div class="donut-color" style="background:var(--info)"></div>Reserved (1)
+                                    </div>
+                                    <div class="donut-item">
+                                        <div class="donut-color" style="background:var(--success)"></div>Cleaning (0)
+                                    </div>
+                                    <div class="donut-item">
+                                        <div class="donut-color" style="background:var(--bg3)"></div>Available (1)
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:.9rem">
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem">
+                                        <span>Luxury Suite</span><span style="color:var(--gold)">100%</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem">
+                                        <span>Signature Room</span><span style="color:var(--gold)">80%</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem">
+                                        <span>Superior Room</span><span style="color:var(--muted)">50%</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:50%;background:var(--info)"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:.3rem">
+                                        <span>Deluxe Room</span><span style="color:var(--success)">25%</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:25%;background:var(--success)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-activity" style="color:var(--gold);margin-right:.4rem"></i> Recent Activity
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-item">
+                            <div class="activity-dot gold"></div>
+                            <div class="activity-body">
+                                <div class="activity-text"><strong>Priya Sharma</strong> checked in to Signature Room
+                                </div>
+                                <div class="activity-time">10:14 AM</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot blue"></div>
+                            <div class="activity-body">
+                                <div class="activity-text">New booking from <strong>Vikram Nair</strong> — Luxury Suite,
+                                    23 Oct</div>
+                                <div class="activity-time">9:52 AM</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot green"></div>
+                            <div class="activity-body">
+                                <div class="activity-text">Spa session confirmed — <strong>Couples Escape</strong> at
+                                    3:00 PM</div>
+                                <div class="activity-time">9:30 AM</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot gold"></div>
+                            <div class="activity-body">
+                                <div class="activity-text"><strong>Room 7</strong> housekeeping completed — marked
+                                    Available</div>
+                                <div class="activity-time">8:45 AM</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-dot red"></div>
+                            <div class="activity-body">
+                                <div class="activity-text">Unread message from <strong>Deepa Roy</strong> — dinner
+                                    reservation enquiry</div>
+                                <div class="activity-time">8:12 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-rooms">
+                <div class="page-header">
+                    <h1>Rooms Management</h1>
+                    <p>All 8 rooms — live availability, rates, and status</p>
+                </div>
+                <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="bi bi-check-circle"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Available</div>
+                            <div class="stat-value">2</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="bi bi-person-fill"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Occupied</div>
+                            <div class="stat-value">6</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="bi bi-tools"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Maintenance</div>
+                            <div class="stat-value">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-star"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Avg Rating</div>
+                            <div class="stat-value">4.7</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-door-open" style="color:var(--gold);margin-right:.4rem"></i> All Rooms</h2>
+                        <a href="../rooms.html" target="_blank" class="btn-admin btn-outline"><i class="bi bi-eye"></i>
+                            View Public Page</a>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Room Name</th>
+                                    <th>Size</th>
+                                    <th>Capacity</th>
+                                    <th>Bed Type</th>
+                                    <th>Rate / Night</th>
+                                    <th>Status</th>
+                                    <th>This Week Occupancy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="color:var(--muted)">#R01</td>
+                                    <td><strong>Superior Room</strong></td>
+                                    <td>30 m2</td>
+                                    <td>1 guest</td>
+                                    <td>Queen bed</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.115</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:40%"></div>
+                                            </div><span class="occ-label">40%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R02</td>
+                                    <td><strong>Signature Room</strong></td>
+                                    <td>70 m2</td>
+                                    <td>2 guests</td>
+                                    <td>King bed</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.220</td>
+                                    <td><span class="badge badge-info">Occupied</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:80%"></div>
+                                            </div><span class="occ-label">80%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R03</td>
+                                    <td><strong>Deluxe Room</strong></td>
+                                    <td>50 m2</td>
+                                    <td>3 guests</td>
+                                    <td>King + sofa</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.265</td>
+                                    <td><span class="badge badge-info">Occupied</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:70%"></div>
+                                            </div><span class="occ-label">70%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R04</td>
+                                    <td><strong>Luxury Room</strong></td>
+                                    <td>50 m2</td>
+                                    <td>4 guests</td>
+                                    <td>King + twin</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.289</td>
+                                    <td><span class="badge badge-info">Occupied</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:90%"></div>
+                                            </div><span class="occ-label">90%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R05</td>
+                                    <td><strong>Luxury Suite</strong></td>
+                                    <td>90 m2</td>
+                                    <td>5 guests</td>
+                                    <td>King + 2 twin</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.320</td>
+                                    <td><span class="badge badge-info">Occupied</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:100%"></div>
+                                            </div><span class="occ-label">100%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R06</td>
+                                    <td><strong>Deluxe Family Room</strong></td>
+                                    <td>45 m2</td>
+                                    <td>6 guests</td>
+                                    <td>2 double beds</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.344</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:25%;background:var(--success)"></div>
+                                            </div><span class="occ-label">25%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R07</td>
+                                    <td><strong>Penthouse Room</strong></td>
+                                    <td>84 m2</td>
+                                    <td>7 guests</td>
+                                    <td>King + 3 twin</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.389</td>
+                                    <td><span class="badge badge-info">Occupied</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:60%"></div>
+                                            </div><span class="occ-label">60%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#R08</td>
+                                    <td><strong>Grand Group Suite</strong></td>
+                                    <td>48 m2</td>
+                                    <td>8 guests</td>
+                                    <td>4 double beds</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.499</td>
+                                    <td><span class="badge badge-info">Occupied</span></td>
+                                    <td>
+                                        <div class="occ-bar-wrap">
+                                            <div class="occ-bar">
+                                                <div class="occ-fill" style="width:75%"></div>
+                                            </div><span class="occ-label">75%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-bookings">
+                <div class="page-header">
+                    <h1>Bookings</h1>
+                    <p>All confirmed, pending, and past reservations</p>
+                </div>
+                <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-check2-circle"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Confirmed</div>
+                            <div class="stat-value">18</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="bi bi-clock"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Pending</div>
+                            <div class="stat-value">4</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i class="bi bi-x-circle"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Cancelled</div>
+                            <div class="stat-value">2</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="bi bi-arrow-right-circle"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Check-outs Today</div>
+                            <div class="stat-value">3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-calendar-check" style="color:var(--gold);margin-right:.4rem"></i> All
+                            Reservations</h2>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Guest Name</th>
+                                    <th>Room</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
+                                    <th>Guests</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2601</td>
+                                    <td><strong>Priya Sharma</strong></td>
+                                    <td>Signature Room</td>
+                                    <td>21 Oct</td>
+                                    <td>24 Oct</td>
+                                    <td>2</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.660</td>
+                                    <td><span class="badge badge-success">Confirmed</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2602</td>
+                                    <td><strong>Rahul Mehta</strong></td>
+                                    <td>Superior Room</td>
+                                    <td>21 Oct</td>
+                                    <td>22 Oct</td>
+                                    <td>1</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.115</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2603</td>
+                                    <td><strong>Ananya Joshi</strong></td>
+                                    <td>Luxury Room</td>
+                                    <td>22 Oct</td>
+                                    <td>25 Oct</td>
+                                    <td>4</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.1,156</td>
+                                    <td><span class="badge badge-success">Confirmed</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2604</td>
+                                    <td><strong>Vikram Nair</strong></td>
+                                    <td>Luxury Suite</td>
+                                    <td>23 Oct</td>
+                                    <td>28 Oct</td>
+                                    <td>5</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.1,920</td>
+                                    <td><span class="badge badge-info">New</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2605</td>
+                                    <td><strong>Sunita Kapoor</strong></td>
+                                    <td>Deluxe Family</td>
+                                    <td>24 Oct</td>
+                                    <td>26 Oct</td>
+                                    <td>6</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.688</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2606</td>
+                                    <td><strong>Arjun Rathi</strong></td>
+                                    <td>Penthouse Room</td>
+                                    <td>25 Oct</td>
+                                    <td>27 Oct</td>
+                                    <td>3</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.778</td>
+                                    <td><span class="badge badge-success">Confirmed</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2598</td>
+                                    <td><strong>Deepa Roy</strong></td>
+                                    <td>Deluxe Room</td>
+                                    <td>18 Oct</td>
+                                    <td>21 Oct</td>
+                                    <td>2</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.795</td>
+                                    <td><span class="badge badge-muted">Checked out</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="color:var(--muted)">#BK-2597</td>
+                                    <td><strong>Kartik Sen</strong></td>
+                                    <td>Grand Group Suite</td>
+                                    <td>13 Oct</td>
+                                    <td>17 Oct</td>
+                                    <td>8</td>
+                                    <td style="color:var(--gold);font-weight:600">rs.1,996</td>
+                                    <td><span class="badge badge-danger">Cancelled</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-spa">
+                <div class="page-header">
+                    <h1>Spa and Wellness</h1>
+                    <p>Treatment schedule, packages, and therapist availability</p>
+                </div>
+                <div class="stats-grid" style="grid-template-columns:repeat(4,1fr)">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="bi bi-calendar2-week"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Sessions Today</div>
+                            <div class="stat-value">9</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="bi bi-heart"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Couples Packages</div>
+                            <div class="stat-value">2</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="bi bi-person-check"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Therapists On Duty</div>
+                            <div class="stat-value">4</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="bi bi-currency-rupee"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Spa Revenue Today</div>
+                            <div class="stat-value">rs.1,490</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-clock" style="color:var(--gold);margin-right:.4rem"></i> Today Schedule
+                            </h2>
+                        </div>
+                        <div class="admin-table-wrap">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Treatment</th>
+                                        <th>Guest</th>
+                                        <th>Duration</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="color:var(--gold);font-weight:600">9:00 AM</td>
+                                        <td>Swedish Massage</td>
+                                        <td>Priya S.</td>
+                                        <td>60 min</td>
+                                        <td><span class="badge badge-muted">Done</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color:var(--gold);font-weight:600">10:30 AM</td>
+                                        <td>Hydrating Facial</td>
+                                        <td>Ananya J.</td>
+                                        <td>45 min</td>
+                                        <td><span class="badge badge-muted">Done</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color:var(--gold);font-weight:600">12:00 PM</td>
+                                        <td>Hot Stone Massage</td>
+                                        <td>Rahul M.</td>
+                                        <td>75 min</td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color:var(--gold);font-weight:600">2:00 PM</td>
+                                        <td>Body Scrub</td>
+                                        <td>Sunita K.</td>
+                                        <td>40 min</td>
+                                        <td><span class="badge badge-success">Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color:var(--gold);font-weight:600">3:00 PM</td>
+                                        <td>Couples Escape</td>
+                                        <td>Vikram and Mrs Nair</td>
+                                        <td>75 min</td>
+                                        <td><span class="badge badge-info">Upcoming</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color:var(--gold);font-weight:600">5:00 PM</td>
+                                        <td>Thermal Pool</td>
+                                        <td>Arjun R.</td>
+                                        <td>90 min</td>
+                                        <td><span class="badge badge-info">Upcoming</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-star" style="color:var(--gold);margin-right:.4rem"></i> Package Bookings
+                            </h2><a href="../spa.html" target="_blank" class="btn-admin btn-outline"><i
+                                    class="bi bi-eye"></i> Spa Page</a>
+                        </div>
+                        <div class="card-body">
+                            <div style="display:flex;flex-direction:column;gap:1.2rem">
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem">
+                                        <span><strong>Couples Escape</strong></span><span style="color:var(--gold)">12
+                                            bookings</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem">
+                                        <span><strong>Relax and Renew</strong></span><span style="color:var(--info)">8
+                                            bookings</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:57%;background:var(--info)"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.4rem">
+                                        <span><strong>Ultimate Wellness Day</strong></span><span
+                                            style="color:var(--success)">4 bookings</span></div>
+                                    <div class="occ-bar">
+                                        <div class="occ-fill" style="width:29%;background:var(--success)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border)">
+                                <div class="stat-label" style="margin-bottom:.8rem">Therapist Availability</div>
+                                <div style="display:flex;flex-direction:column;gap:.6rem">
+                                    <div
+                                        style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem">
+                                        <span>Dr. Meera Singh</span><span class="badge badge-success">Available</span>
+                                    </div>
+                                    <div
+                                        style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem">
+                                        <span>Ravi Kumar</span><span class="badge badge-warning">In Session</span></div>
+                                    <div
+                                        style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem">
+                                        <span>Kavya Nair</span><span class="badge badge-warning">In Session</span></div>
+                                    <div
+                                        style="display:flex;align-items:center;justify-content:space-between;font-size:.83rem">
+                                        <span>Anil Sharma</span><span class="badge badge-success">Available</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-messages">
+                <div class="page-header">
+                    <h1>Guest Messages</h1>
+                    <p>All enquiries submitted through the website contact form</p>
+                </div>
+                <div class="two-col" style="margin-bottom:1.5rem">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="bi bi-envelope"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Total Messages</div>
+                            <div class="stat-value">5</div>
+                            <div class="stat-sub">This week</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="bi bi-exclamation-circle"></i></div>
+                        <div class="stat-body">
+                            <div class="stat-label">Awaiting Reply</div>
+                            <div class="stat-value">3</div>
+                            <div class="stat-sub"><span class="down">Reply within 2 hours</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-chat-dots" style="color:var(--gold);margin-right:.4rem"></i> Inbox</h2><span
+                            class="badge badge-warning">3 unread</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="msg-item msg-unread">
+                            <div class="msg-avatar">DR</div>
+                            <div style="flex:1">
+                                <div><span class="msg-name">Deepa Roy</span><span class="msg-time">21 Oct, 8:12
+                                        AM</span><span class="badge badge-warning"
+                                        style="margin-left:.5rem;font-size:.62rem">Unread</span></div>
+                                <div class="msg-text">Hi, I was hoping to book a dinner reservation for tomorrow evening
+                                    for 4 people. Do you have availability at the rooftop restaurant?</div>
+                                <div style="margin-top:.5rem;display:flex;gap:.5rem"><a
+                                        href="mailto:hello@hotelaadina.in" class="btn-admin btn-gold"
+                                        style="font-size:.72rem"><i class="bi bi-reply"></i> Reply</a><span
+                                        class="badge badge-muted">Dining</span></div>
+                            </div>
+                        </div>
+                        <div class="msg-item msg-unread">
+                            <div class="msg-avatar blue">SK</div>
+                            <div style="flex:1">
+                                <div><span class="msg-name">Sunita Kapoor</span><span class="msg-time">21 Oct, 7:45
+                                        AM</span><span class="badge badge-warning"
+                                        style="margin-left:.5rem;font-size:.62rem">Unread</span></div>
+                                <div class="msg-text">We would like to extend our stay by 2 nights. Is the Deluxe Family
+                                    Room still available? Please confirm the extended rate.</div>
+                                <div style="margin-top:.5rem;display:flex;gap:.5rem"><a
+                                        href="mailto:hello@hotelaadina.in" class="btn-admin btn-gold"
+                                        style="font-size:.72rem"><i class="bi bi-reply"></i> Reply</a><span
+                                        class="badge badge-muted">Room Booking</span></div>
+                            </div>
+                        </div>
+                        <div class="msg-item msg-unread">
+                            <div class="msg-avatar green">AR</div>
+                            <div style="flex:1">
+                                <div><span class="msg-name">Arjun Rathi</span><span class="msg-time">20 Oct, 6:30
+                                        PM</span><span class="badge badge-warning"
+                                        style="margin-left:.5rem;font-size:.62rem">Unread</span></div>
+                                <div class="msg-text">Can I add the Ultimate Wellness Day spa package to my stay? I
+                                    arrive on 25 Oct and would like to book it for the afternoon.</div>
+                                <div style="margin-top:.5rem;display:flex;gap:.5rem"><a
+                                        href="mailto:hello@hotelaadina.in" class="btn-admin btn-gold"
+                                        style="font-size:.72rem"><i class="bi bi-reply"></i> Reply</a><span
+                                        class="badge badge-muted">Spa</span></div>
+                            </div>
+                        </div>
+                        <div class="msg-item">
+                            <div class="msg-avatar orange">VN</div>
+                            <div style="flex:1">
+                                <div><span class="msg-name">Vikram Nair</span><span class="msg-time">20 Oct, 2:15
+                                        PM</span><span class="badge badge-success"
+                                        style="margin-left:.5rem;font-size:.62rem">Replied</span></div>
+                                <div class="msg-text">Thank you for confirming my Luxury Suite booking. Could you
+                                    arrange airport pickup on 23 Oct at 4 PM from IGI?</div>
+                                <div style="margin-top:.5rem"><span class="badge badge-muted">Room Booking</span></div>
+                            </div>
+                        </div>
+                        <div class="msg-item">
+                            <div class="msg-avatar">PS</div>
+                            <div style="flex:1">
+                                <div><span class="msg-name">Priya Sharma</span><span class="msg-time">20 Oct, 11:00
+                                        AM</span><span class="badge badge-success"
+                                        style="margin-left:.5rem;font-size:.62rem">Replied</span></div>
+                                <div class="msg-text">We had an amazing stay! The Signature Room was beautiful. Will
+                                    definitely be coming back. Please add us to the newsletter.</div>
+                                <div style="margin-top:.5rem"><span class="badge badge-muted">Feedback</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="panel-settings">
+                <div class="page-header">
+                    <h1>Settings</h1>
+                    <p>Hotel profile, notifications, and team access</p>
+                </div>
+                <div class="two-col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2><i class="bi bi-building" style="color:var(--gold);margin-right:.4rem"></i> Hotel
+                                Information</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="setting-row">
+                                <div>
+                                    <div class="setting-label">Hotel Name</div>
+                                    <div class="setting-desc">Shown across the site header and footer</div>
+                                </div>
+                                <div class="setting-control"><input class="setting-input" type="text"
+                                        value="Hotel and Spa Adina" readonly /></div>
+                            </div>
+                            <div class="setting-row">
+                                <div>
+                                    <div class="setting-label">Contact Email</div>
+                                    <div class="setting-desc">Guest-facing email address</div>
+                                </div>
+                                <div class="setting-control"><input class="setting-input" type="email"
+                                        value="hello@hotelaadina.in" readonly /></div>
+                            </div>
+                            <div class="setting-row">
+                                <div>
+                                    <div class="setting-label">Phone</div>
+                                    <div class="setting-desc">Reception direct line</div>
+                                </div>
+                                <div class="setting-control"><input class="setting-input" type="tel"
+                                        value="+91 11 2345 6789" readonly /></div>
+                            </div>
+                            <div class="setting-row">
+                                <div>
+                                    <div class="setting-label">Address</div>
+                                    <div class="setting-desc">Physical location</div>
+                                </div>
+                                <div class="setting-control"><input class="setting-input" type="text"
+                                        value="12 Luxury Lane, New Delhi" readonly /></div>
+                            </div>
+                            <div class="setting-row">
+                                <div>
+                                    <div class="setting-label">Currency</div>
+                                    <div class="setting-desc">Used across all price displays</div>
+                                </div>
+                                <div class="setting-control"><input class="setting-input" type="text" value="INR (rs.)"
+                                        readonly /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card" style="margin-bottom:1.5rem">
+                            <div class="card-header">
+                                <h2><i class="bi bi-bell" style="color:var(--gold);margin-right:.4rem"></i>
+                                    Notifications</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="setting-row">
+                                    <div>
+                                        <div class="setting-label">New Booking Alerts</div>
+                                        <div class="setting-desc">Notify when a new reservation arrives</div>
+                                    </div>
+                                    <div class="setting-control">
+                                        <div class="toggle-switch on"></div>
+                                    </div>
+                                </div>
+                                <div class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Guest Messages</div>
+                                        <div class="setting-desc">Alert on new contact form submissions</div>
+                                    </div>
+                                    <div class="setting-control">
+                                        <div class="toggle-switch on"></div>
+                                    </div>
+                                </div>
+                                <div class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Spa Session Reminders</div>
+                                        <div class="setting-desc">15 min reminder before each session</div>
+                                    </div>
+                                    <div class="setting-control">
+                                        <div class="toggle-switch on"></div>
+                                    </div>
+                                </div>
+                                <div class="setting-row">
+                                    <div>
+                                        <div class="setting-label">Daily Revenue Report</div>
+                                        <div class="setting-desc">Email summary at 11 PM nightly</div>
+                                    </div>
+                                    <div class="setting-control">
+                                        <div class="toggle-switch"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h2><i class="bi bi-people" style="color:var(--gold);margin-right:.4rem"></i> Team
+                                    Access</h2>
+                            </div>
+                            <div class="card-body">
+                                <div style="display:flex;flex-direction:column;gap:.8rem">
+                                    <div style="display:flex;align-items:center;justify-content:space-between">
+                                        <div style="display:flex;align-items:center;gap:.7rem">
+                                            <div class="sidebar-avatar" style="width:30px;height:30px;font-size:.7rem">
+                                                DK</div>
+                                            <div>
+                                                <div style="font-size:.85rem;font-weight:600">Deepanshu Kashyap</div>
+                                                <div style="font-size:.72rem;color:var(--muted)">Admin - Lead</div>
+                                            </div>
+                                        </div><span class="badge badge-gold">Admin</span>
+                                    </div>
+                                    <div style="display:flex;align-items:center;justify-content:space-between">
+                                        <div style="display:flex;align-items:center;gap:.7rem">
+                                            <div class="sidebar-avatar"
+                                                style="width:30px;height:30px;font-size:.7rem;background:linear-gradient(135deg,var(--info),#2563eb);color:#fff">
+                                                AG</div>
+                                            <div>
+                                                <div style="font-size:.85rem;font-weight:600">Ayush Gupta</div>
+                                                <div style="font-size:.72rem;color:var(--muted)">UI - Rooms and Spa
+                                                </div>
+                                            </div>
+                                        </div><span class="badge badge-info">Editor</span>
+                                    </div>
+                                    <div style="display:flex;align-items:center;justify-content:space-between">
+                                        <div style="display:flex;align-items:center;gap:.7rem">
+                                            <div class="sidebar-avatar"
+                                                style="width:30px;height:30px;font-size:.7rem;background:linear-gradient(135deg,var(--success),#059669);color:#fff">
+                                                AT</div>
+                                            <div>
+                                                <div style="font-size:.85rem;font-weight:600">Ayush Tyagi</div>
+                                                <div style="font-size:.72rem;color:var(--muted)">Dining and Contact
+                                                </div>
+                                            </div>
+                                        </div><span class="badge badge-success">Editor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
