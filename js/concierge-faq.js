@@ -82,5 +82,20 @@
       });
     }
 
+    /* ── 4. KEYBOARD ACCESSIBILITY (ENTER & SPACE KEYS) ────────────────── */
+    faqItems.forEach(function (item) {
+      var header = item.querySelector('.faq-header');
+      if (header) {
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('role', 'button');
+        header.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
+      }
+    });
+
   });
 })();
