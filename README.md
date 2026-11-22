@@ -30,12 +30,19 @@ Hotel-and-Resort-Management-System/
 ├── rooms.html            # Standalone Room Catalog & Filtering Page (Contributed by Ayush Gupta)
 ├── room-details.html     # Dynamic Room Details & Reservation Page (Contributed by Deepanshu Kashyap)
 ├── spa.html              # Dedicated Spa & Wellness Experience Page (Contributed by Ayush Gupta)
+├── admin/
+│   ├── index.html        # Internal Staff & Management Dashboard (Contributed by Deepanshu Kashyap)
+│   └── README.md         # Admin panel documentation & navigation guide
 ├── css/
 │   ├── style.css         # Core design system, navigation, typography, landing page & detail styles
 │   ├── rooms.css         # Standalone rooms catalog styling
-│   └── spa.css           # Dedicated spa treatments & pricing styling
+│   ├── spa.css           # Dedicated spa treatments & pricing styling
+│   └── admin.css         # Admin panel dark glassmorphism styling
 ├── js/
-│   └── main.js           # Shared mobile drawer navigation and interaction handlers
+│   ├── main.js           # Shared mobile drawer navigation and interaction handlers
+│   ├── rooms.js          # Room live search, category filters, and guest count filtering
+│   ├── booking.js        # Booking reservation bar date validation and newsletter interaction
+│   └── admin.js          # Admin dashboard panel switching, real-time clock, search & reply
 └── assets/
     ├── fonts/            # Web fonts (Gilda Display, Barlow, Barlow Condensed)
     └── img/
