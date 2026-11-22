@@ -615,3 +615,20 @@ function getRoomSubtotal(roomType, rooms, nights) {
   else if (roomType === "resortVilla") rate = ROOM_RATES.resortVilla;
   return rate * Math.max(1, Number(rooms) || 1) * Math.max(1, Number(nights) || 1);
 }
+
+
+
+
+const PROMO_CODES = { STAY10: 0.10, RESORT15: 0.15, WEEKEND5: 0.05 };
+const RESORT_ADDONS = [
+  { id: "breakfast", name: "Breakfast Buffet", price: 650 },
+  { id: "airportPickup", name: "Airport Transfer", price: 1200 },
+  { id: "spaPass", name: "Spa & Pool Access", price: 1800 }
+];
+
+function applyPromo(code, amount) {
+  const clean = typeof code === "string" ? code.trim().toUpperCase() : "";
+  const isValid = clean.length > 0 && Object.prototype.hasOwnProperty.call(PROMO_CODES, clean);
+  const discount = isValid ? Math.round(amount * PROMO_CODES[clean]) : 0;
+  return { code: clean, isValid, discount, finalAmount: Math.max(0, amount - discount) };
+}
