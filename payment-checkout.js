@@ -600,7 +600,7 @@ function submitBookingViaAjax(payload) {
 
 
 
-
+//Room Rates, Stay Nights & Subtotal
 const ROOM_RATES = { deluxe: 3500, suite: 6000, resortVilla: 9500 };
 
 function getNightsCount(checkIn, checkOut) {
@@ -618,7 +618,7 @@ function getRoomSubtotal(roomType, rooms, nights) {
 
 
 
-
+//Promo Codes & Resort Add-ons
 const PROMO_CODES = { STAY10: 0.10, RESORT15: 0.15, WEEKEND5: 0.05 };
 const RESORT_ADDONS = [
   { id: "breakfast", name: "Breakfast Buffet", price: 650 },
@@ -631,4 +631,28 @@ function applyPromo(code, amount) {
   const isValid = clean.length > 0 && Object.prototype.hasOwnProperty.call(PROMO_CODES, clean);
   const discount = isValid ? Math.round(amount * PROMO_CODES[clean]) : 0;
   return { code: clean, isValid, discount, finalAmount: Math.max(0, amount - discount) };
+}
+
+
+
+
+
+
+//Stay Discount & GST Calculation
+const Gst = 0.18;
+
+function calculateTaxAndDiscount(subtotal, nights) {
+  let discountRate = 0;
+  if (nights >= 7) discountRate = 0.15;
+  else if (nights >= 3) discountRate = 0.08;
+
+  const discountAmount = Math.round(subtotal * discountRate);
+  const taxableAmount = Math.max(0, subtotal - discountAmount);
+  const gstAmount = Math.round(taxableAmount * Gst);
+
+  return {
+    discountAmount,
+    gstAmount,
+    totalWithGst: taxableAmount + gstAmount
+  };
 }
