@@ -596,3 +596,22 @@ function submitBookingViaAjax(payload) {
     }
   });
 })();
+
+
+
+
+
+const ROOM_RATES = { deluxe: 3500, suite: 6000, resortVilla: 9500 };
+
+function getNightsCount(checkIn, checkOut) {
+  const diff = new Date(checkOut) - new Date(checkIn);
+  if (Number.isNaN(diff) || diff <= 0) return 1;
+  return Math.max(1, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+}
+
+function getRoomSubtotal(roomType, rooms, nights) {
+  let rate = ROOM_RATES.deluxe;
+  if (roomType === "suite") rate = ROOM_RATES.suite;
+  else if (roomType === "resortVilla") rate = ROOM_RATES.resortVilla;
+  return rate * Math.max(1, Number(rooms) || 1) * Math.max(1, Number(nights) || 1);
+}
