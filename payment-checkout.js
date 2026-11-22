@@ -656,3 +656,53 @@ function calculateTaxAndDiscount(subtotal, nights) {
     totalWithGst: taxableAmount + gstAmount
   };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Payment Mode Switch & Add-on Loop Total
+function resolvePaymentMode(mode) {
+  switch (String(mode || "").trim().toLowerCase()) {
+    case "card":
+      return { code: "card", label: "Credit / Debit Card", feeRate: 0.015 };
+    case "upi":
+      return { code: "upi", label: "UPI Payment", feeRate: 0 };
+    case "netbanking":
+      return { code: "netbanking", label: "Net Banking", feeRate: 0.01 };
+    case "pay_at_hotel":
+      return { code: "pay_at_hotel", label: "Pay at Hotel", feeRate: 0 };
+    default:
+      return { code: "upi", label: "UPI Payment", feeRate: 0 };
+  }
+}
+
+function sumSelectedAddons(selectedIds) {
+  try {
+    if (!Array.isArray(selectedIds)) throw new TypeError("Add-ons must be an array");
+    let total = 0;
+    for (let i = 0; i < RESORT_ADDONS.length; i++) {
+      for (let j = 0; j < selectedIds.length; j++) {
+        if (String(selectedIds[j]) === RESORT_ADDONS[i].id) {
+          total += Number(RESORT_ADDONS[i].price) || 0;
+        }
+      }
+    }
+    return total;
+  } catch (err) {
+    console.error("Addon total error:", err.message);
+    return 0;
+  }
+}
