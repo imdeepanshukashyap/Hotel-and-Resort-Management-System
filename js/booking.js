@@ -137,4 +137,80 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { passive: true });
   }
 
+  /* ── 5. AGRA & MATHURA DESTINATION FILTER & LIVE SEARCH ────────────────── */
+  var destFilterTabs = document.querySelectorAll('[data-dest-filter]');
+  var destSearchInput = document.getElementById('destSearchInput');
+  var destItems = document.querySelectorAll('.dest-item');
+  var destNoResult = document.getElementById('destNoResult');
+
+  var currentDestFilter = 'all';
+  var currentDestQuery = '';
+
+  function filterDestinations() {
+    var visibleCount = 0;
+    destItems.forEach(function (card) {
+      var dest = card.getAttribute('data-destination') || '';
+      var cardText = card.textContent.toLowerCase();
+
+      var matchFilter = (currentDestFilter === 'all') || (dest === currentDestFilter);
+      var matchQuery = !currentDestQuery || (cardText.indexOf(currentDestQuery) !== -1);
+
+      if (matchFilter && matchQuery) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (destNoResult) {
+      destNoResult.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+  }
+
+  if (destFilterTabs.length) {
+    destFilterTabs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        destFilterTabs.forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        currentDestFilter = this.getAttribute('data-dest-filter');
+        filterDestinations();
+      });
+    });
+  }
+
+  if (destSearchInput) {
+    destSearchInput.addEventListener('input', function () {
+      currentDestQuery = this.value.trim().toLowerCase();
+      filterDestinations();
+    });
+  }
+
+  /* Auto-fill contact form on clicking "Inquire" on any resort card */
+  var inquireButtons = document.querySelectorAll('[data-hotel-inquire]');
+  inquireButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var hotelName = this.getAttribute('data-hotel-inquire');
+      var serviceSelect = document.getElementById('contact-service');
+      var subjectInput = document.getElementById('contact-subject');
+      var messageTextarea = document.getElementById('contact-message');
+
+      if (serviceSelect) serviceSelect.value = 'suites';
+      if (subjectInput && hotelName) {
+        subjectInput.value = 'Inquiry for ' + hotelName;
+      }
+      if (messageTextarea && hotelName) {
+        messageTextarea.value = 'Hello Concierge, I would like to inquire about reservation availability and rates for ' + hotelName + '.';
+      }
+
+      var contactSec = document.getElementById('contact');
+      if (contactSec) {
+        contactSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function () {
+          if (subjectInput) subjectInput.focus();
+        }, 500);
+      }
+    });
+  });
+
 });
