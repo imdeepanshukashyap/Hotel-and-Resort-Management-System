@@ -28,7 +28,6 @@
       <nav class="main-nav" aria-label="Main Navigation">
         <a href="index.html" class="nav-link-custom active">Home</a>
         <a href="rooms.html" class="nav-link-custom">Rooms</a>
-        <a href="#destinations" class="nav-link-custom">Agra &amp; Mathura</a>
         <a href="#restaurant" class="nav-link-custom">Restaurant</a>
         <a href="spa.html" class="nav-link-custom">Spa</a>
         <a href="#contact" class="nav-link-custom">Contact</a>
@@ -364,41 +363,63 @@
   </section>
 
   <!-- ========================================================================
-       POPULAR HOTELS & RESORTS IN AGRA & MATHURA SECTION
+       POPULAR HOTELS & RESORTS (AGRA & MATHURA DESTINATIONS + LOCATION FINDER)
        ======================================================================== -->
   <section class="destinations-section py-5" id="destinations">
     <div class="container py-4">
       <div class="section-header">
-        <p class="section-tag">Iconic Heritage &amp; Spiritual Retreats</p>
-        <h2 class="h2">Popular Resorts &amp; Hotels in Agra &amp; Mathura</h2>
+        <p class="section-tag">Curated Stays &amp; Destinations</p>
+        <h2 class="h2">Featured Resorts &amp; Hotels</h2>
         <p class="section-subtitle" style="max-width: 680px; margin: 10px auto 0; color: var(--color-text-muted); font-size: 14px; line-height: 1.7;">
-          From regal Mughal retreats facing the Taj Mahal to tranquil spiritual sanctuaries in sacred Braj Bhoomi, explore our hand-picked collection of premier hospitality destinations.
+          Explore premier luxury resorts across popular destinations including Agra &amp; Mathura. Use live location to instantly find and sort hotels nearest to you.
         </p>
       </div>
 
-      <!-- Destination Toolbar (Filter Tabs + Live Search) -->
+      <!-- Destination Toolbar (Location Finder + Filter Tabs + Live Search) -->
       <div class="dest-toolbar">
         <div class="dest-filter-tabs" id="destFilterTabs">
-          <button type="button" class="dest-tab-btn active" data-dest-filter="all">All Destinations (8)</button>
-          <button type="button" class="dest-tab-btn" data-dest-filter="agra"><i class="bi bi-geo-alt-fill me-1" style="color:var(--color-accent);"></i>Agra Stays (4)</button>
-          <button type="button" class="dest-tab-btn" data-dest-filter="mathura"><i class="bi bi-geo-alt-fill me-1" style="color:#2563eb;"></i>Mathura &amp; Vrindavan (4)</button>
+          <button type="button" class="dest-tab-btn active" data-dest-filter="all">All (8)</button>
+          <button type="button" class="dest-tab-btn" data-dest-filter="agra"><i class="bi bi-geo-alt-fill me-1" style="color:var(--color-accent);"></i>Agra (4)</button>
+          <button type="button" class="dest-tab-btn" data-dest-filter="mathura"><i class="bi bi-geo-alt-fill me-1" style="color:#2563eb;"></i>Mathura (4)</button>
         </div>
+
+        <!-- Live Location Detection + Fallback Presets -->
+        <div class="dest-location-controls">
+          <button type="button" class="btn-location-detect" id="btnDetectLocation">
+            <i class="bi bi-crosshair"></i> Find Near Me
+          </button>
+          <div class="loc-presets">
+            <span class="loc-presets-label">Near:</span>
+            <button type="button" class="btn-loc-chip" data-test-loc="agra">Agra</button>
+            <button type="button" class="btn-loc-chip" data-test-loc="mathura">Mathura</button>
+            <button type="button" class="btn-loc-chip" data-test-loc="delhi">Delhi</button>
+            <button type="button" class="btn-loc-chip reset-chip d-none" id="btnResetLocation"><i class="bi bi-x-circle"></i> Reset</button>
+          </div>
+        </div>
+
         <div class="dest-search-wrap">
           <i class="bi bi-search"></i>
-          <input type="text" id="destSearchInput" class="dest-search-input" placeholder="Search by name, landmark, amenity..." aria-label="Search Agra & Mathura hotels">
+          <input type="text" id="destSearchInput" class="dest-search-input" placeholder="Search hotels, landmarks..." aria-label="Search hotels">
         </div>
       </div>
 
-      <!-- Resorts Grid (8 Cards: 4 Agra, 4 Mathura) -->
+      <!-- Location Status Banner -->
+      <div id="locationStatusBanner" class="location-status-banner d-none">
+        <i class="bi bi-geo-alt-fill me-2" style="color:var(--color-accent);"></i>
+        <span id="locationStatusText">Hotels sorted by distance from your location</span>
+      </div>
+
+      <!-- Resorts Grid (8 Cards: 4 Agra, 4 Mathura with GPS Coordinates) -->
       <div class="row g-4" id="destinationsGrid">
 
         <!-- 1. The Oberoi Amarvilas (Agra) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra" data-lat="27.1705" data-lng="78.0496">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/heroSlider/1.jpg" alt="The Oberoi Amarvilas, Agra">
               <span class="resort-city-badge agra">Agra</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.9</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Ultra-Luxury Heritage</p>
@@ -428,12 +449,13 @@
         </div>
 
         <!-- 2. ITC Mughal, a Luxury Collection Resort & Spa (Agra) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra" data-lat="27.1585" data-lng="78.0378">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/heroSlider/2.jpg" alt="ITC Mughal, Agra">
               <span class="resort-city-badge agra">Agra</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.8</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">5-Star Heritage Resort</p>
@@ -463,12 +485,13 @@
         </div>
 
         <!-- 3. Taj Hotel & Convention Centre (Agra) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra" data-lat="27.1610" data-lng="78.0530">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/rooms/5-lg.png" alt="Taj Hotel & Convention Centre, Agra">
               <span class="resort-city-badge agra">Agra</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.7</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Contemporary Luxury</p>
@@ -498,12 +521,13 @@
         </div>
 
         <!-- 4. Courtyard by Marriott (Agra) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="agra" data-lat="27.1578" data-lng="78.0410">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/rooms/2.png" alt="Courtyard by Marriott, Agra">
               <span class="resort-city-badge agra">Agra</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.6</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Premium Resort &amp; Spa</p>
@@ -533,12 +557,13 @@
         </div>
 
         <!-- 5. Kadamb Resort Spiritual Stay (Vrindavan, Mathura) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura" data-lat="27.5685" data-lng="77.6740">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/heroSlider/3.jpg" alt="Kadamb Resort Spiritual Stay, Vrindavan">
               <span class="resort-city-badge mathura">Mathura / Vrindavan</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.8</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Spiritual Wellness Resort</p>
@@ -568,12 +593,13 @@
         </div>
 
         <!-- 6. The Radha Ashok (Mathura) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura" data-lat="27.5090" data-lng="77.6710">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/rooms/3.png" alt="The Radha Ashok, Mathura">
               <span class="resort-city-badge mathura">Mathura</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.6</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Boutique Garden Resort</p>
@@ -603,12 +629,13 @@
         </div>
 
         <!-- 7. Nidhivan Sarovar Portico (Vrindavan, Mathura) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura" data-lat="27.5750" data-lng="77.6680">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/rooms/4.png" alt="Nidhivan Sarovar Portico, Vrindavan">
               <span class="resort-city-badge mathura">Mathura / Vrindavan</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.7</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Premium Heritage Hotel</p>
@@ -638,12 +665,13 @@
         </div>
 
         <!-- 8. Resort Hare Krishna Orchid (Vrindavan, Mathura) -->
-        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura">
+        <div class="col-12 col-md-6 col-lg-3 dest-item" data-destination="mathura" data-lat="27.5710" data-lng="77.6760">
           <article class="resort-card">
             <div class="resort-card-img-wrap">
               <img src="assets/img/rooms/6.png" alt="Resort Hare Krishna Orchid, Vrindavan">
               <span class="resort-city-badge mathura">Mathura / Vrindavan</span>
               <span class="resort-rating-badge"><i class="bi bi-star-fill"></i> 4.5</span>
+              <span class="resort-distance-badge d-none"></span>
             </div>
             <div class="resort-card-body">
               <p class="resort-category">Villa Resort &amp; Spa</p>
@@ -673,6 +701,15 @@
         </div>
 
       </div>
+
+      <!-- No Results Placeholder for Destination Search -->
+      <div id="destNoResult" style="display:none; text-align:center; padding: 40px 20px; color: var(--color-text-muted);">
+        <i class="bi bi-building-slash" style="font-size: 2.2rem; color: var(--color-accent); display:block; margin-bottom: 10px;"></i>
+        <h5>No properties match your destination search</h5>
+        <p style="font-size: 13px;">Try searching for "Taj", "Pool", "Prem Mandir", "Gardens", or clear the filter.</p>
+      </div>
+    </div>
+  </section>
 
       <!-- No Results Placeholder for Destination Search -->
       <div id="destNoResult" style="display:none; text-align:center; padding: 40px 20px; color: var(--color-text-muted);">

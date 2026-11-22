@@ -137,15 +137,168 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { passive: true });
   }
 
-  /* ── 5. AGRA & MATHURA DESTINATION FILTER & LIVE SEARCH ────────────────── */
+  /* ── 5. AGRA & MATHURA DESTINATION FILTER, LIVE SEARCH & GEOLOCATION ──── */
   var destFilterTabs = document.querySelectorAll('[data-dest-filter]');
   var destSearchInput = document.getElementById('destSearchInput');
-  var destItems = document.querySelectorAll('.dest-item');
+  var destGrid = document.getElementById('destinationsGrid');
+  var destItems = Array.from(document.querySelectorAll('.dest-item'));
   var destNoResult = document.getElementById('destNoResult');
+
+  var btnDetectLocation = document.getElementById('btnDetectLocation');
+  var btnResetLocation = document.getElementById('btnResetLocation');
+  var locationStatusBanner = document.getElementById('locationStatusBanner');
+  var locationStatusText = document.getElementById('locationStatusText');
+  var presetLocChips = document.querySelectorAll('[data-test-loc]');
 
   var currentDestFilter = 'all';
   var currentDestQuery = '';
 
+  /* Keep original card order for reset */
+  var originalDestOrder = destItems.slice();
+
+  /* Basic Haversine Distance calculation in Kilometers */
+  function getDistanceKm(lat1, lon1, lat2, lon2) {
+    var R = 6371; // Earth radius in km
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lon2 - lon1) * Math.PI / 180;
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return Math.round(R * c * 10) / 10; // 1 decimal place
+  }
+
+  /* Sort and display cards based on distance */
+  function applyLocationSort(userLat, userLng, placeLabel) {
+    if (!destGrid) return;
+
+    destItems.forEach(function (card) {
+      var lat = parseFloat(card.getAttribute('data-lat'));
+      var lng = parseFloat(card.getAttribute('data-lng'));
+      var distBadge = card.querySelector('.resort-distance-badge');
+
+      if (!isNaN(lat) && !isNaN(lng)) {
+        var dist = getDistanceKm(userLat, userLng, lat, lng);
+        card._dist = dist;
+        if (distBadge) {
+          distBadge.innerHTML = '<i class="bi bi-geo-alt-fill"></i> ' + (dist < 1 ? '<1 km' : dist + ' km');
+          distBadge.classList.remove('d-none');
+        }
+      } else {
+        card._dist = 999999;
+      }
+    });
+
+    /* Sort array by distance ascending (nearest first) */
+    var sorted = destItems.slice().sort(function (a, b) {
+      return a._dist - b._dist;
+    });
+
+    /* Re-append sorted cards into DOM grid */
+    sorted.forEach(function (card) {
+      destGrid.appendChild(card);
+    });
+
+    /* Update status banner */
+    if (locationStatusBanner && locationStatusText && sorted.length > 0) {
+      var nearestName = sorted[0].querySelector('.resort-title') ? sorted[0].querySelector('.resort-title').textContent : 'Nearest Stay';
+      var nearestDist = sorted[0]._dist;
+
+      locationStatusText.innerHTML =
+        'Showing <strong>' + sorted.length + ' resorts</strong> sorted nearest to <strong>' + placeLabel + '</strong>. ' +
+        'Nearest: <strong>' + nearestName + '</strong> (' + (nearestDist < 1 ? '<1 km' : nearestDist + ' km away') + ')';
+
+      locationStatusBanner.classList.remove('d-none');
+    }
+
+    if (btnResetLocation) {
+      btnResetLocation.classList.remove('d-none');
+    }
+
+    filterDestinations();
+  }
+
+  /* Reset location sorting back to original default */
+  function resetLocation() {
+    if (!destGrid) return;
+
+    originalDestOrder.forEach(function (card) {
+      card._dist = null;
+      var distBadge = card.querySelector('.resort-distance-badge');
+      if (distBadge) distBadge.classList.add('d-none');
+      destGrid.appendChild(card);
+    });
+
+    if (locationStatusBanner) locationStatusBanner.classList.add('d-none');
+    if (btnResetLocation) btnResetLocation.classList.add('d-none');
+    if (btnDetectLocation) {
+      btnDetectLocation.classList.remove('active');
+      btnDetectLocation.innerHTML = '<i class="bi bi-crosshair"></i> Find Near Me';
+    }
+
+    presetLocChips.forEach(function (chip) { chip.classList.remove('active'); });
+    filterDestinations();
+  }
+
+  /* 1. Real Browser Geolocation API */
+  if (btnDetectLocation) {
+    btnDetectLocation.addEventListener('click', function () {
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser. Please try the city preset buttons below.');
+        return;
+      }
+
+      btnDetectLocation.innerHTML = '<i class="bi bi-hourglass-split"></i> Detecting GPS...';
+
+      navigator.geolocation.getCurrentPosition(
+        function (pos) {
+          btnDetectLocation.classList.add('active');
+          btnDetectLocation.innerHTML = '<i class="bi bi-geo-alt-fill"></i> Location Active';
+          presetLocChips.forEach(function (c) { c.classList.remove('active'); });
+          applyLocationSort(pos.coords.latitude, pos.coords.longitude, 'Your GPS Location');
+        },
+        function (err) {
+          btnDetectLocation.innerHTML = '<i class="bi bi-crosshair"></i> Find Near Me';
+          if (locationStatusBanner && locationStatusText) {
+            locationStatusText.innerHTML = '<strong>Location access denied or unavailable.</strong> You can click the preset chips (Near Agra / Near Mathura) to test distance sorting.';
+            locationStatusBanner.classList.remove('d-none');
+          }
+        },
+        { enableHighAccuracy: true, timeout: 8000 }
+      );
+    });
+  }
+
+  /* 2. City Location Presets (for class demonstration) */
+  var cityCoords = {
+    agra: { lat: 27.1767, lng: 78.0081, name: 'Agra City Center' },
+    mathura: { lat: 27.4924, lng: 77.6737, name: 'Mathura - Vrindavan' },
+    delhi: { lat: 28.6139, lng: 77.2090, name: 'Delhi-NCR' }
+  };
+
+  presetLocChips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var cityKey = this.getAttribute('data-test-loc');
+      var city = cityCoords[cityKey];
+      if (!city) return;
+
+      presetLocChips.forEach(function (c) { c.classList.remove('active'); });
+      this.classList.add('active');
+
+      if (btnDetectLocation) {
+        btnDetectLocation.classList.remove('active');
+        btnDetectLocation.innerHTML = '<i class="bi bi-crosshair"></i> Find Near Me';
+      }
+
+      applyLocationSort(city.lat, city.lng, city.name);
+    });
+  });
+
+  if (btnResetLocation) {
+    btnResetLocation.addEventListener('click', resetLocation);
+  }
+
+  /* 3. Destination Filter Tabs */
   function filterDestinations() {
     var visibleCount = 0;
     destItems.forEach(function (card) {
@@ -186,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* Auto-fill contact form on clicking "Inquire" on any resort card */
+  /* 4. Auto-fill contact form on clicking "Inquire" */
   var inquireButtons = document.querySelectorAll('[data-hotel-inquire]');
   inquireButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
