@@ -375,3 +375,13 @@
   border-color: var(--color-accent);
   color: var(--color-white);
 }
+.room-row.hidden {
+  display: none;
+}
+
+.no-rooms {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 18px;
+  padding: 40px 0;
+}
