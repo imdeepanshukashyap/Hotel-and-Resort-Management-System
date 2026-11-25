@@ -348,16 +348,16 @@
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label-custom" for="checkoutRoomSelect">Selected Room Type</label>
+                <label class="form-label-custom" for="checkoutRoomSelect">Select Hotel &amp; Resort</label>
                 <select id="checkoutRoomSelect" class="form-control-custom">
-                  <option value="1">Superior Room - Rs. 115 / night</option>
-                  <option value="2">Signature Room - Rs. 220 / night</option>
-                  <option value="3">Deluxe Room - Rs. 265 / night</option>
-                  <option value="4" selected>Luxury Room - Rs. 289 / night</option>
-                  <option value="5">Luxury Suite Room - Rs. 320 / night</option>
-                  <option value="6">Deluxe Family Room - Rs. 344 / night</option>
-                  <option value="7">Penthouse Room - Rs. 389 / night</option>
-                  <option value="8">Grand Group Suite - Rs. 499 / night</option>
+                  <option value="1">The Oberoi Amarvilas, Agra - Rs. 18,500 / night</option>
+                  <option value="2">ITC Mughal Resort &amp; Spa, Agra - Rs. 9,200 / night</option>
+                  <option value="3">Taj Hotel &amp; Convention Centre, Agra - Rs. 7,800 / night</option>
+                  <option value="4">Courtyard by Marriott, Agra - Rs. 5,400 / night</option>
+                  <option value="5">Kadamb Resort Spiritual Stay, Vrindavan - Rs. 4,500 / night</option>
+                  <option value="6">The Radha Ashok, Mathura - Rs. 3,800 / night</option>
+                  <option value="7">Nidhivan Sarovar Portico, Vrindavan - Rs. 4,200 / night</option>
+                  <option value="8">Resort Hare Krishna Orchid, Vrindavan - Rs. 3,600 / night</option>
                 </select>
               </div>
             </div>
@@ -565,14 +565,14 @@
   <script>
     (function () {
       const roomsData = {
-        1: { name: "Superior Room", size: "30m²", maxPeople: 1, bed: "Queen bed", price: 115, img: "assets/img/rooms/1.png" },
-        2: { name: "Signature Room", size: "70m²", maxPeople: 2, bed: "King bed", price: 220, img: "assets/img/rooms/2.png" },
-        3: { name: "Deluxe Room", size: "50m²", maxPeople: 3, bed: "King bed + 1 twin", price: 265, img: "assets/img/rooms/3.png" },
-        4: { name: "Luxury Room", size: "50m²", maxPeople: 4, bed: "King bed + sofa bed", price: 289, img: "assets/img/rooms/4.png" },
-        5: { name: "Luxury Suite Room", size: "90m²", maxPeople: 5, bed: "King bed + 2 twin", price: 320, img: "assets/img/rooms/5-lg.png" },
-        6: { name: "Deluxe Family Room", size: "45m²", maxPeople: 6, bed: "2 Queen beds", price: 344, img: "assets/img/rooms/6.png" },
-        7: { name: "Penthouse Room", size: "84m²", maxPeople: 7, bed: "3 King beds", price: 389, img: "assets/img/rooms/7.png" },
-        8: { name: "Grand Group Suite", size: "48m²", maxPeople: 8, bed: "4 double beds", price: 499, img: "assets/img/rooms/8.png" }
+        1: { name: "The Oberoi Amarvilas", city: "Agra", size: "Taj View Suite", maxPeople: 2, bed: "King Palace Bed", price: 18500, img: "assets/img/heroSlider/1.jpg" },
+        2: { name: "ITC Mughal Resort & Spa", city: "Agra", size: "Mughal Chamber", maxPeople: 3, bed: "Royal King Bed", price: 9200, img: "assets/img/heroSlider/2.jpg" },
+        3: { name: "Taj Hotel & Convention Centre", city: "Agra", size: "Executive View Suite", maxPeople: 4, bed: "King Bed + 1 Twin", price: 7800, img: "assets/img/rooms/5-lg.png" },
+        4: { name: "Courtyard by Marriott", city: "Agra", size: "Deluxe Courtyard Room", maxPeople: 4, bed: "King / Twin Beds", price: 5400, img: "assets/img/rooms/2.png" },
+        5: { name: "Kadamb Resort Spiritual Stay", city: "Vrindavan - Mathura", size: "Spiritual Garden Suite", maxPeople: 4, bed: "Double Queen Beds", price: 4500, img: "assets/img/heroSlider/3.jpg" },
+        6: { name: "The Radha Ashok", city: "Mathura", size: "Garden View Deluxe", maxPeople: 3, bed: "King Bed", price: 3800, img: "assets/img/rooms/3.png" },
+        7: { name: "Nidhivan Sarovar Portico", city: "Vrindavan - Mathura", size: "Executive Holy Suite", maxPeople: 4, bed: "King Bed + Sofa", price: 4200, img: "assets/img/rooms/4.png" },
+        8: { name: "Resort Hare Krishna Orchid", city: "Vrindavan - Mathura", size: "Family Duplex Villa", maxPeople: 5, bed: "2 Double Beds", price: 3600, img: "assets/img/rooms/1.png" }
       };
 
       // Form Elements
@@ -608,7 +608,7 @@
 
       // Initialize values from URL Query
       const urlParams = new URLSearchParams(window.location.search);
-      const initialId = parseInt(urlParams.get('id'), 10) || 4;
+      const initialId = parseInt(urlParams.get('id'), 10) || 1;
       const initialCheckIn = urlParams.get('checkIn') || urlParams.get('checkin');
       const initialCheckOut = urlParams.get('checkOut') || urlParams.get('checkout');
       const initialAdults = urlParams.get('adults');
