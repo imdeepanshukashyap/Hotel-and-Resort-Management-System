@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your luxury hotel reservation at Hotel &amp; Spa Adina. Instant room booking confirmation and best rate guarantee.">
+  <title>Checkout &amp; Reservation Confirmation | Hotel &amp; Spa Adina</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Main Project Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .checkout-hero {
+      background: #0a0a0a;
+      background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.88)), url('assets/img/heroSlider/3.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 5rem 0 3rem;
+      text-align: center;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(163, 125, 76, 0.3);
+    }
+    .checkout-hero-subtitle {
+      font-family: var(--font-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--color-accent);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .checkout-hero-title {
+      font-family: var(--font-primary);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .checkout-section {
+      padding: 3.5rem 0 5.5rem;
+      background: #fbfbfb;
+    }
+    .checkout-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+    .checkout-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .step-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--color-accent);
+      color: #ffffff;
+      font-family: var(--font-tertiary);
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .checkout-card-title {
+      font-family: var(--font-primary);
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin: 0;
+    }
+
+    .form-label-custom {
+      font-family: var(--font-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+    .form-control-custom {
+      border: 1px solid var(--color-border);
+      border-radius: 3px;
+      padding: 0.75rem 1rem;
+      font-family: var(--font-secondary);
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      transition: var(--transition);
+      width: 100%;
+    }
+    .form-control-custom:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(163, 125, 76, 0.15);
+    }
+
+    /* Payment Methods */
+    .payment-option-card {
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 1.1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #ffffff;
+      user-select: none;
+    }
+    .payment-option-card:hover {
+      border-color: var(--color-accent);
+    }
+    .payment-option-card.selected {
+      border-color: var(--color-accent);
+      background: var(--color-accent-subtle);
+    }
+    .payment-icon {
+      font-size: 1.6rem;
+      color: var(--color-accent);
+    }
+
+    /* Summary Card (Right Side Sticky) */
+    .summary-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 100px;
+      overflow: hidden;
+    }
+    .summary-img-wrapper {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .summary-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .summary-img-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--color-accent);
+      color: #ffffff;
+      font-family: var(--font-tertiary);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 0.35rem 0.8rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .summary-body {
+      padding: 1.8rem;
+    }
+    .summary-room-title {
+      font-family: var(--font-primary);
+      font-size: 1.6rem;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+    }
+    .summary-meta-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-family: var(--font-secondary);
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.55rem 0;
+      font-family: var(--font-secondary);
+      font-size: 0.92rem;
+      color: #444444;
+    }
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      margin-top: 0.8rem;
+      border-top: 2px solid #0a0a0a;
+      font-family: var(--font-primary);
+      font-size: 1.45rem;
+      color: #0a0a0a;
+      font-weight: 700;
+    }
+    .summary-perks {
+      background: #f8f8f8;
+      padding: 1.2rem 1.8rem;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.82rem;
+      color: #666666;
+    }
+    .summary-perks li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .summary-perks i {
+      color: var(--color-accent);
+    }
+
+    /* Modal Styling */
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .confirmation-modal.show {
+      display: flex;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 580px;
+      padding: 3rem 2.4rem;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      position: relative;
+      animation: modalFadeIn 0.4s ease;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-success-icon {
+      width: 76px;
+      height: 76px;
+      background: rgba(163, 125, 76, 0.15);
+      color: var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      margin: 0 auto 1.5rem;
+    }
+    .booking-ref-badge {
+      display: inline-block;
+      background: #0a0a0a;
+      color: var(--color-accent);
+      font-family: var(--font-tertiary);
+      font-size: 1.15rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+      padding: 0.6rem 1.6rem;
+      border-radius: 3px;
+      margin: 1rem 0 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="header-logo" aria-label="Hotel &amp; Spa Adina Home">
+        <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link-custom">Home</a>
+        <a href="rooms.html" class="nav-link-custom active">Rooms</a>
+        <a href="index.html#restaurant" class="nav-link-custom">Restaurant</a>
+        <a href="spa.html" class="nav-link-custom">Spa</a>
+        <a href="index.html#contact" class="nav-link-custom">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="checkout-hero">
+    <div class="container">
+      <p class="checkout-hero-subtitle">Official Reservation Portal</p>
+      <h1 class="checkout-hero-title">Review &amp; Confirm Your Stay</h1>
+    </div>
+  </section>
+
+  <!-- Checkout Main -->
+  <section class="checkout-section">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Left Form Columns -->
+        <div class="col-12 col-lg-7">
+
+          <!-- Step 1: Stay Details -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span class="step-badge">1</span>
+              <h2 class="checkout-card-title">Stay &amp; Room Details</h2>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="checkoutCheckIn">Check-In Date</label>
+                <input type="date" id="checkoutCheckIn" class="form-control-custom" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="checkoutCheckOut">Check-Out Date</label>
+                <input type="date" id="checkoutCheckOut" class="form-control-custom" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="checkoutAdults">Adults</label>
+                <select id="checkoutAdults" class="form-control-custom">
+                  <option value="1">1 Adult</option>
+                  <option value="2" selected>2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                  <option value="5">5 Adults</option>
+                  <option value="6">6 Adults</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="checkoutKids">Children</label>
+                <select id="checkoutKids" class="form-control-custom">
+                  <option value="0" selected>0 Children</option>
+                  <option value="1">1 Child</option>
+                  <option value="2">2 Children</option>
+                  <option value="3">3 Children</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label-custom" for="checkoutRoomSelect">Selected Room Type</label>
+                <select id="checkoutRoomSelect" class="form-control-custom">
+                  <option value="1">Superior Room - Rs. 115 / night</option>
+                  <option value="2">Signature Room - Rs. 220 / night</option>
+                  <option value="3">Deluxe Room - Rs. 265 / night</option>
+                  <option value="4" selected>Luxury Room - Rs. 289 / night</option>
+                  <option value="5">Luxury Suite Room - Rs. 320 / night</option>
+                  <option value="6">Deluxe Family Room - Rs. 344 / night</option>
+                  <option value="7">Penthouse Room - Rs. 389 / night</option>
+                  <option value="8">Grand Group Suite - Rs. 499 / night</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Guest Details -->
+          <div class="checkout-card">
+            <div class="checkout-card-header d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center gap-2">
+                <span class="step-badge">2</span>
+                <h2 class="checkout-card-title">Primary Guest Information</h2>
+              </div>
+              <span id="userAuthBadge" class="badge bg-dark text-accent px-2 py-1" style="font-size:0.75rem; letter-spacing:1px; display:none;"></span>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="guestFirstName">First Name *</label>
+                <input type="text" id="guestFirstName" class="form-control-custom" placeholder="First Name" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="guestLastName">Last Name *</label>
+                <input type="text" id="guestLastName" class="form-control-custom" placeholder="Last Name" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="guestEmail">Email Address *</label>
+                <input type="email" id="guestEmail" class="form-control-custom" placeholder="guest@domain.com" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label-custom" for="guestPhone">Mobile Phone *</label>
+                <input type="tel" id="guestPhone" class="form-control-custom" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label-custom" for="guestNotes">Special Requests &amp; Arrival Notes</label>
+                <textarea id="guestNotes" class="form-control-custom" rows="3" placeholder="Dietary preferences, early check-in, high-floor preference, anniversary setup..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Payment Options -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span class="step-badge">3</span>
+              <h2 class="checkout-card-title">Select Payment Mode</h2>
+            </div>
+
+            <div class="row g-3" id="paymentOptionsGroup">
+              <div class="col-12 col-md-6">
+                <div class="payment-option-card selected" data-method="card">
+                  <input type="radio" name="paymentOption" id="payCard" checked class="form-check-input" style="accent-color: var(--color-accent);">
+                  <i class="bi bi-credit-card-2-front payment-icon"></i>
+                  <div>
+                    <strong class="d-block text-dark" style="font-size: 0.95rem;">Credit / Debit Card</strong>
+                    <small class="text-muted" style="font-size: 0.8rem;">Visa, Mastercard, RuPay, Amex</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="payment-option-card" data-method="upi">
+                  <input type="radio" name="paymentOption" id="payUpi" class="form-check-input" style="accent-color: var(--color-accent);">
+                  <i class="bi bi-qr-code-scan payment-icon"></i>
+                  <div>
+                    <strong class="d-block text-dark" style="font-size: 0.95rem;">UPI &amp; Net Banking</strong>
+                    <small class="text-muted" style="font-size: 0.8rem;">Google Pay, PhonePe, Paytm</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="payment-option-card" data-method="hotel">
+                  <input type="radio" name="paymentOption" id="payHotel" class="form-check-input" style="accent-color: var(--color-accent);">
+                  <i class="bi bi-building-check payment-icon"></i>
+                  <div>
+                    <strong class="d-block text-dark" style="font-size: 0.95rem;">Pay at Hotel</strong>
+                    <small class="text-muted" style="font-size: 0.8rem;">Zero prepayment needed today</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="payment-option-card" data-method="points">
+                  <input type="radio" name="paymentOption" id="payPoints" class="form-check-input" style="accent-color: var(--color-accent);">
+                  <i class="bi bi-gem payment-icon"></i>
+                  <div>
+                    <strong class="d-block text-dark" style="font-size: 0.95rem;">Member Privilege</strong>
+                    <small class="text-muted" style="font-size: 0.8rem;">Adina Concierge direct bill</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-secondary mt-3 mb-0 d-flex align-items-center gap-2" style="font-size: 0.82rem; background: #f8f9fa;">
+              <i class="bi bi-shield-check text-accent fs-5"></i>
+              <span>Demo Guarantee: No live charges will be billed to your account. Your reservation voucher is instantly generated.</span>
+            </div>
+          </div>
+
+          <!-- Confirm CTA -->
+          <button type="button" class="btn-custom btn-custom-lg btn-accent w-100 d-flex align-items-center justify-content-center gap-2" id="confirmBookingBtn" style="font-size: 1.15rem; padding: 1.15rem;">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span>Confirm &amp; Complete Reservation</span>
+          </button>
+
+        </div>
+
+        <!-- Right Side: Order Summary -->
+        <div class="col-12 col-lg-5">
+          <div class="summary-card">
+            <div class="summary-img-wrapper">
+              <img src="assets/img/rooms/4.png" alt="Room preview" id="summaryRoomImg">
+              <span class="summary-img-badge" id="summaryRoomBadge">BESTSELLER</span>
+            </div>
+            <div class="summary-body">
+              <h3 class="summary-room-title" id="summaryRoomName">Luxury Room</h3>
+              <div class="summary-meta-chips" id="summaryRoomChips">
+                <span><i class="bi bi-fullscreen text-accent me-1"></i> <span id="summarySize">50m²</span></span>
+                <span><i class="bi bi-people text-accent me-1"></i> <span id="summaryGuests">Max 4 guests</span></span>
+                <span><i class="bi bi-moon-stars text-accent me-1"></i> <span id="summaryBed">King bed</span></span>
+              </div>
+
+              <!-- Dates row -->
+              <div class="summary-line">
+                <span>Check-in:</span>
+                <strong id="summaryCheckInText">--</strong>
+              </div>
+              <div class="summary-line">
+                <span>Check-out:</span>
+                <strong id="summaryCheckOutText">--</strong>
+              </div>
+              <div class="summary-line">
+                <span>Length of Stay:</span>
+                <span id="summaryNightsText">3 nights</span>
+              </div>
+              <div class="summary-line">
+                <span>Nightly Rate:</span>
+                <span id="summaryRateText">Rs. 289</span>
+              </div>
+              <div class="summary-line">
+                <span>Room Charges:</span>
+                <span id="summarySubtotalText">Rs. 867</span>
+              </div>
+              <div class="summary-line">
+                <span>Govt. Taxes &amp; GST (12%):</span>
+                <span id="summaryTaxText">Rs. 104</span>
+              </div>
+              <div class="summary-total">
+                <span>Total Amount:</span>
+                <span class="text-accent" id="summaryGrandTotalText">Rs. 971</span>
+              </div>
+            </div>
+
+            <ul class="summary-perks list-unstyled m-0">
+              <li><i class="bi bi-check2-circle"></i> Free cancellation up to 48 hours prior</li>
+              <li><i class="bi bi-check2-circle"></i> Complimentary high-speed fiber Wi-Fi</li>
+              <li><i class="bi bi-check2-circle"></i> Complimentary gourmet buffet breakfast</li>
+              <li><i class="bi bi-check2-circle"></i> 24/7 Butler &amp; Concierge assistance</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Confirmed Success Modal -->
+  <div class="confirmation-modal" id="confirmationModal">
+    <div class="modal-box">
+      <div class="modal-success-icon">
+        <i class="bi bi-check-lg"></i>
+      </div>
+      <p class="text-accent text-uppercase mb-1" style="font-family: var(--font-tertiary); letter-spacing: 2.5px; font-weight:600; font-size:0.9rem;">Reservation Confirmed</p>
+      <h2 style="font-family: var(--font-primary); font-size: 2.2rem; color: #0a0a0a;">Thank You, <span id="modalGuestName">Valued Guest</span>!</h2>
+      <p class="text-muted" style="font-size: 0.95rem;">
+        Your reservation at <strong>Hotel &amp; Spa Adina</strong> is officially confirmed. A verification receipt has been saved to your guest profile.
+      </p>
+
+      <div class="booking-ref-badge" id="modalBookingId">
+        ADN-849204
+      </div>
+
+      <div class="bg-light p-3 rounded mb-4 text-start" style="font-size: 0.9rem; line-height: 1.8;">
+        <div><strong>Room:</strong> <span id="modalRoomName">Luxury Room</span></div>
+        <div><strong>Dates:</strong> <span id="modalStayDates">--</span></div>
+        <div><strong>Guests:</strong> <span id="modalGuestsInfo">2 Adults</span></div>
+        <div><strong>Total Paid / Guaranteed:</strong> <span id="modalTotalPaid" class="text-accent fw-bold">Rs. 971</span></div>
+      </div>
+
+      <div class="d-flex gap-2 justify-content-center flex-wrap">
+        <button type="button" class="btn-custom btn-dark" onclick="window.print();">
+          <i class="bi bi-printer me-1"></i> Print Voucher
+        </button>
+        <a href="index.html" class="btn-custom btn-accent">
+          <i class="bi bi-house me-1"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container text-center py-4">
+      <p class="m-0 text-muted" style="font-size: 0.85rem;">&copy; 2026 Hotel &amp; Spa Adina. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const roomsData = {
+        1: { name: "Superior Room", size: "30m²", maxPeople: 1, bed: "Queen bed", price: 115, img: "assets/img/rooms/1.png" },
+        2: { name: "Signature Room", size: "70m²", maxPeople: 2, bed: "King bed", price: 220, img: "assets/img/rooms/2.png" },
+        3: { name: "Deluxe Room", size: "50m²", maxPeople: 3, bed: "King bed + 1 twin", price: 265, img: "assets/img/rooms/3.png" },
+        4: { name: "Luxury Room", size: "50m²", maxPeople: 4, bed: "King bed + sofa bed", price: 289, img: "assets/img/rooms/4.png" },
+        5: { name: "Luxury Suite Room", size: "90m²", maxPeople: 5, bed: "King bed + 2 twin", price: 320, img: "assets/img/rooms/5-lg.png" },
+        6: { name: "Deluxe Family Room", size: "45m²", maxPeople: 6, bed: "2 Queen beds", price: 344, img: "assets/img/rooms/6.png" },
+        7: { name: "Penthouse Room", size: "84m²", maxPeople: 7, bed: "3 King beds", price: 389, img: "assets/img/rooms/7.png" },
+        8: { name: "Grand Group Suite", size: "48m²", maxPeople: 8, bed: "4 double beds", price: 499, img: "assets/img/rooms/8.png" }
+      };
+
+      // Form Elements
+      const checkInInput = document.getElementById('checkoutCheckIn');
+      const checkOutInput = document.getElementById('checkoutCheckOut');
+      const adultsSelect = document.getElementById('checkoutAdults');
+      const kidsSelect = document.getElementById('checkoutKids');
+      const roomSelect = document.getElementById('checkoutRoomSelect');
+
+      const guestFirst = document.getElementById('guestFirstName');
+      const guestLast = document.getElementById('guestLastName');
+      const guestEmail = document.getElementById('guestEmail');
+      const guestPhone = document.getElementById('guestPhone');
+      const guestNotes = document.getElementById('guestNotes');
+      const userAuthBadge = document.getElementById('userAuthBadge');
+
+      const confirmBtn = document.getElementById('confirmBookingBtn');
+      const modal = document.getElementById('confirmationModal');
+
+      // Summary Elements
+      const summaryImg = document.getElementById('summaryRoomImg');
+      const summaryName = document.getElementById('summaryRoomName');
+      const summarySize = document.getElementById('summarySize');
+      const summaryGuests = document.getElementById('summaryGuests');
+      const summaryBed = document.getElementById('summaryBed');
+      const summaryCheckIn = document.getElementById('summaryCheckInText');
+      const summaryCheckOut = document.getElementById('summaryCheckOutText');
+      const summaryNights = document.getElementById('summaryNightsText');
+      const summaryRate = document.getElementById('summaryRateText');
+      const summarySubtotal = document.getElementById('summarySubtotalText');
+      const summaryTax = document.getElementById('summaryTaxText');
+      const summaryTotal = document.getElementById('summaryGrandTotalText');
+
+      // Initialize values from URL Query
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialId = parseInt(urlParams.get('id'), 10) || 4;
+      const initialCheckIn = urlParams.get('checkIn') || urlParams.get('checkin');
+      const initialCheckOut = urlParams.get('checkOut') || urlParams.get('checkout');
+      const initialAdults = urlParams.get('adults');
+      const initialKids = urlParams.get('kids') || urlParams.get('children');
+
+      // Default dates: tomorrow & 3 days later
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(now.getDate() + 1);
+      const defaultOut = new Date(now);
+      defaultOut.setDate(now.getDate() + 4);
+
+      const fmtDate = (d) => d.toISOString().split('T')[0];
+
+      checkInInput.min = fmtDate(now);
+      checkInInput.value = initialCheckIn || fmtDate(tomorrow);
+      checkOutInput.min = fmtDate(tomorrow);
+      checkOutInput.value = initialCheckOut || fmtDate(defaultOut);
+
+      if (roomsData[initialId]) {
+        roomSelect.value = initialId;
+      }
+      if (initialAdults && adultsSelect.querySelector('option[value="' + initialAdults + '"]')) {
+        adultsSelect.value = initialAdults;
+      }
+      if (initialKids && kidsSelect.querySelector('option[value="' + initialKids + '"]')) {
+        kidsSelect.value = initialKids;
+      }
+
+      // Check logged-in user in localStorage
+      try {
+        const storedUser = JSON.parse(localStorage.getItem('adina_user') || 'null');
+        if (storedUser && storedUser.name) {
+          const names = storedUser.name.split(' ');
+          guestFirst.value = names[0] || '';
+          guestLast.value = names.slice(1).join(' ') || '';
+          guestEmail.value = storedUser.email || '';
+          userAuthBadge.textContent = 'MEMBER: ' + storedUser.name;
+          userAuthBadge.style.display = 'inline-block';
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      // Payment option card selection
+      const paymentCards = document.querySelectorAll('.payment-option-card');
+      paymentCards.forEach(card => {
+        card.addEventListener('click', function () {
+          paymentCards.forEach(c => c.classList.remove('selected'));
+          this.classList.add('selected');
+          const radio = this.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+        });
+      });
+
+      // Recalculate Summary
+      function updateSummary() {
+        const roomId = parseInt(roomSelect.value, 10) || 4;
+        const room = roomsData[roomId] || roomsData[4];
+
+        const dIn = new Date(checkInInput.value);
+        const dOut = new Date(checkOutInput.value);
+
+        let nights = 1;
+        if (!isNaN(dIn.getTime()) && !isNaN(dOut.getTime()) && dOut > dIn) {
+          nights = Math.max(1, Math.round((dOut - dIn) / (1000 * 60 * 60 * 24)));
+        }
+
+        const subtotal = room.price * nights;
+        const tax = Math.round(subtotal * 0.12);
+        const grandTotal = subtotal + tax;
+
+        summaryImg.src = room.img;
+        summaryName.textContent = room.name;
+        summarySize.textContent = room.size;
+        summaryGuests.textContent = 'Max ' + room.maxPeople + ' guests';
+        summaryBed.textContent = room.bed;
+
+        const optIn = { day: 'numeric', month: 'short', year: 'numeric' };
+        summaryCheckIn.textContent = isNaN(dIn.getTime()) ? checkInInput.value : dIn.toLocaleDateString('en-IN', optIn);
+        summaryCheckOut.textContent = isNaN(dOut.getTime()) ? checkOutInput.value : dOut.toLocaleDateString('en-IN', optIn);
+
+        summaryNights.textContent = nights + (nights === 1 ? ' night' : ' nights');
+        summaryRate.textContent = 'Rs. ' + room.price;
+        summarySubtotal.textContent = 'Rs. ' + subtotal;
+        summaryTax.textContent = 'Rs. ' + tax;
+        summaryTotal.textContent = 'Rs. ' + grandTotal;
+      }
+
+      checkInInput.addEventListener('change', function () {
+        if (checkOutInput.value && checkOutInput.value <= checkInInput.value) {
+          const d = new Date(checkInInput.value);
+          d.setDate(d.getDate() + 1);
+          checkOutInput.value = fmtDate(d);
+        }
+        updateSummary();
+      });
+
+      checkOutInput.addEventListener('change', updateSummary);
+      roomSelect.addEventListener('change', updateSummary);
+      updateSummary();
+
+      // Confirm Booking Handler
+      confirmBtn.addEventListener('click', function () {
+        const first = guestFirst.value.trim();
+        const last = guestLast.value.trim();
+        const email = guestEmail.value.trim();
+        const phone = guestPhone.value.trim();
+
+        if (!first || !last || !email || !phone) {
+          alert('Please fill out your First Name, Last Name, Email, and Phone Number.');
+          guestFirst.focus();
+          return;
+        }
+
+        const dIn = new Date(checkInInput.value);
+        const dOut = new Date(checkOutInput.value);
+        if (isNaN(dIn.getTime()) || isNaN(dOut.getTime()) || dOut <= dIn) {
+          alert('Check-out date must be after check-in date.');
+          checkOutInput.focus();
+          return;
+        }
+
+        const roomId = parseInt(roomSelect.value, 10);
+        const room = roomsData[roomId];
+        const nights = Math.max(1, Math.round((dOut - dIn) / (1000 * 60 * 60 * 24)));
+        const total = (room.price * nights) + Math.round((room.price * nights) * 0.12);
+
+        // Generate Booking ID
+        const bookingId = 'ADN-' + Math.floor(100000 + Math.random() * 900000);
+
+        // Save to localStorage
+        let bookings = [];
+        try {
+          bookings = JSON.parse(localStorage.getItem('adina_bookings') || '[]');
+        } catch (e) {
+          bookings = [];
+        }
+
+        const newBooking = {
+          bookingId: bookingId,
+          roomId: roomId,
+          roomName: room.name,
+          checkIn: checkInInput.value,
+          checkOut: checkOutInput.value,
+          adults: adultsSelect.value,
+          kids: kidsSelect.value,
+          guestName: first + ' ' + last,
+          email: email,
+          phone: phone,
+          notes: guestNotes.value.trim(),
+          totalAmount: total,
+          createdAt: new Date().toISOString()
+        };
+
+        bookings.unshift(newBooking);
+        localStorage.setItem('adina_bookings', JSON.stringify(bookings));
+
+        // Fill Modal Info
+        document.getElementById('modalGuestName').textContent = first;
+        document.getElementById('modalBookingId').textContent = bookingId;
+        document.getElementById('modalRoomName').textContent = room.name;
+        document.getElementById('modalStayDates').textContent = checkInInput.value + ' to ' + checkOutInput.value + ' (' + nights + ' nights)';
+        document.getElementById('modalGuestsInfo').textContent = adultsSelect.value + ' Adults, ' + kidsSelect.value + ' Children';
+        document.getElementById('modalTotalPaid').textContent = 'Rs. ' + total;
+
+        modal.classList.add('show');
+      });
+    })();
+  </script>
+</body>
+</html>
