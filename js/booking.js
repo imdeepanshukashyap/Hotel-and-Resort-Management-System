@@ -231,7 +231,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var dist = getDistanceKm(userLat, userLng, lat, lng);
         card._dist = dist;
         if (distBadge) {
-          distBadge.innerHTML = '<i class="bi bi-geo-alt-fill"></i> ' + (dist < 1 ? '<1 km' : dist + ' km');
+          var distStr = (dist < 1 ? '<1 km' : dist + ' km');
+          if (placeLabel && placeLabel !== 'Your GPS Location') {
+            distBadge.innerHTML = '<i class="bi bi-geo-alt-fill"></i> ' + distStr + ' from ' + placeLabel;
+          } else {
+            distBadge.innerHTML = '<i class="bi bi-geo-alt-fill"></i> ' + distStr + ' away';
+          }
           distBadge.classList.remove('d-none');
         }
       } else {
@@ -287,6 +292,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     presetLocChips.forEach(function (chip) { chip.classList.remove('active'); });
+
+    if (destSearchInput) destSearchInput.value = '';
+    currentDestQuery = '';
+    currentDestFilter = 'all';
+    if (destFilterTabs.length) {
+      destFilterTabs.forEach(function (b) {
+        if (b.getAttribute('data-dest-filter') === 'all') {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+    }
+
     filterDestinations();
   }
 
@@ -319,12 +338,58 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* 2. City Location Presets (for class demonstration) */
+  /* 2. Comprehensive Geographic City Database for Proximity Detection */
   var cityCoords = {
-    agra: { lat: 27.1767, lng: 78.0081, name: 'Agra City Center' },
-    mathura: { lat: 27.4924, lng: 77.6737, name: 'Mathura - Vrindavan' },
-    delhi: { lat: 28.6139, lng: 77.2090, name: 'Delhi-NCR' }
+    'agra': { lat: 27.1767, lng: 78.0081, name: 'Agra City Center' },
+    'mathura': { lat: 27.4924, lng: 77.6737, name: 'Mathura' },
+    'vrindavan': { lat: 27.5685, lng: 77.6740, name: 'Vrindavan' },
+    'delhi': { lat: 28.6139, lng: 77.2090, name: 'Delhi' },
+    'new delhi': { lat: 28.6139, lng: 77.2090, name: 'New Delhi' },
+    'ncr': { lat: 28.6139, lng: 77.2090, name: 'Delhi-NCR' },
+    'noida': { lat: 28.5355, lng: 77.3910, name: 'Noida' },
+    'greater noida': { lat: 28.4744, lng: 77.5040, name: 'Greater Noida' },
+    'gurgaon': { lat: 28.4595, lng: 77.0266, name: 'Gurugram' },
+    'gurugram': { lat: 28.4595, lng: 77.0266, name: 'Gurugram' },
+    'faridabad': { lat: 28.4089, lng: 77.3178, name: 'Faridabad' },
+    'ghaziabad': { lat: 28.6692, lng: 77.4538, name: 'Ghaziabad' },
+    'aligarh': { lat: 27.8974, lng: 78.0880, name: 'Aligarh' },
+    'bharatpur': { lat: 27.2152, lng: 77.5030, name: 'Bharatpur' },
+    'jaipur': { lat: 26.9124, lng: 75.7873, name: 'Jaipur' },
+    'gwalior': { lat: 26.2183, lng: 78.1828, name: 'Gwalior' },
+    'lucknow': { lat: 26.8467, lng: 80.9462, name: 'Lucknow' },
+    'kanpur': { lat: 26.4499, lng: 80.3319, name: 'Kanpur' },
+    'hathras': { lat: 27.5968, lng: 78.0519, name: 'Hathras' },
+    'firozabad': { lat: 27.1591, lng: 78.3957, name: 'Firozabad' },
+    'govardhan': { lat: 27.4975, lng: 77.4633, name: 'Govardhan' },
+    'barsana': { lat: 27.6472, lng: 77.3756, name: 'Barsana' },
+    'gokul': { lat: 27.4414, lng: 77.7208, name: 'Gokul' },
+    'fatehpur sikri': { lat: 27.0945, lng: 77.6679, name: 'Fatehpur Sikri' }
   };
+
+  /* Helper to match any city name from user query */
+  function matchCityFromQuery(str) {
+    if (!str) return null;
+    var cleaned = str.toLowerCase().trim();
+
+    if (cityCoords[cleaned]) return cityCoords[cleaned];
+
+    // Strip noise words
+    var stripped = cleaned.replace(/\b(hotels?|resorts?|stays?|luxury|heritage|boutique|near|nearby|in|around|at)\b/gi, ' ').trim();
+    stripped = stripped.replace(/\s+/g, ' ');
+
+    if (stripped && cityCoords[stripped]) {
+      return cityCoords[stripped];
+    }
+
+    var keys = Object.keys(cityCoords);
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      if (cleaned.indexOf(k) !== -1) {
+        return cityCoords[k];
+      }
+    }
+    return null;
+  }
 
   presetLocChips.forEach(function (chip) {
     chip.addEventListener('click', function () {
@@ -334,6 +399,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       presetLocChips.forEach(function (c) { c.classList.remove('active'); });
       this.classList.add('active');
+
+      if (destSearchInput) {
+        destSearchInput.value = city.name;
+      }
 
       if (btnDetectLocation) {
         btnDetectLocation.classList.remove('active');
@@ -348,15 +417,27 @@ document.addEventListener('DOMContentLoaded', function () {
     btnResetLocation.addEventListener('click', resetLocation);
   }
 
-  /* 3. Destination Filter Tabs */
+  /* 3. Destination Filter Tabs & Global Search Handler */
   function filterDestinations() {
+    var matchedCity = matchCityFromQuery(currentDestQuery);
     var visibleCount = 0;
+
     destItems.forEach(function (card) {
       var dest = card.getAttribute('data-destination') || '';
       var cardText = card.textContent.toLowerCase();
 
       var matchFilter = (currentDestFilter === 'all') || (dest === currentDestFilter);
-      var matchQuery = !currentDestQuery || (cardText.indexOf(currentDestQuery) !== -1);
+      var matchQuery = true;
+
+      if (currentDestQuery) {
+        if (matchedCity) {
+          // If searching by city proximity, show all hotels sorted by distance
+          matchQuery = true;
+        } else {
+          // Standard keyword match across hotel title, address, description, amenities
+          matchQuery = (cardText.indexOf(currentDestQuery) !== -1);
+        }
+      }
 
       if (matchFilter && matchQuery) {
         card.style.display = '';
@@ -385,6 +466,35 @@ document.addEventListener('DOMContentLoaded', function () {
   if (destSearchInput) {
     destSearchInput.addEventListener('input', function () {
       currentDestQuery = this.value.trim().toLowerCase();
+
+      if (currentDestQuery) {
+        // Unlock search across all locations
+        currentDestFilter = 'all';
+        if (destFilterTabs.length) {
+          destFilterTabs.forEach(function (b) {
+            if (b.getAttribute('data-dest-filter') === 'all') {
+              b.classList.add('active');
+            } else {
+              b.classList.remove('active');
+            }
+          });
+        }
+
+        // If the query is a city or region, calculate real distances & sort nearest
+        var city = matchCityFromQuery(currentDestQuery);
+        if (city) {
+          presetLocChips.forEach(function (c) {
+            c.classList.toggle('active', c.getAttribute('data-test-loc') === currentDestQuery);
+          });
+          applyLocationSort(city.lat, city.lng, city.name);
+          return;
+        }
+      } else {
+        if (locationStatusBanner && !btnDetectLocation.classList.contains('active')) {
+          locationStatusBanner.classList.add('d-none');
+        }
+      }
+
       filterDestinations();
     });
   }
