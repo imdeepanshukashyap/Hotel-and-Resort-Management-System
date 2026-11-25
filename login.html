@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login to your Hotel &amp; Spa Adina account to manage reservations, check out faster, and access member-only privileges.">
+  <title>Guest Login | Hotel &amp; Spa Adina</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Main Project Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #0a0a0a;
+      background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.92)), url('assets/img/heroSlider/1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .auth-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.25rem;
+    }
+    .auth-box {
+      background: #111111;
+      border: 1px solid rgba(163, 125, 76, 0.35);
+      border-radius: 4px;
+      padding: 2.8rem 2.4rem;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+    .auth-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    }
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .auth-logo {
+      height: 38px;
+      margin-bottom: 1.2rem;
+    }
+    .auth-subtitle {
+      font-family: var(--font-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+    }
+    .auth-title {
+      font-family: var(--font-primary);
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 400;
+      margin: 0;
+    }
+    .demo-callout {
+      background: rgba(163, 125, 76, 0.12);
+      border: 1px dashed rgba(163, 125, 76, 0.45);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.6rem;
+      font-family: var(--font-secondary);
+      font-size: 0.84rem;
+      color: #d1b894;
+    }
+    .demo-callout strong {
+      color: #ffffff;
+    }
+    .demo-fill-btn {
+      background: transparent;
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      font-family: var(--font-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .demo-fill-btn:hover {
+      background: var(--color-accent);
+      color: #0a0a0a;
+    }
+    .auth-form-group {
+      margin-bottom: 1.35rem;
+    }
+    .auth-form-group label {
+      display: block;
+      font-family: var(--font-tertiary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #b0b0b0;
+      margin-bottom: 0.45rem;
+    }
+    .auth-input-wrapper {
+      position: relative;
+    }
+    .auth-input-wrapper i.input-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-accent);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .auth-input {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #333333;
+      border-radius: 3px;
+      padding: 0.8rem 1rem 0.8rem 2.8rem;
+      color: #ffffff;
+      font-family: var(--font-secondary);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .auth-input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background: #202020;
+    }
+    .password-toggle-btn {
+      position: absolute;
+      right: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #777777;
+      cursor: pointer;
+      font-size: 1.05rem;
+      padding: 0;
+    }
+    .password-toggle-btn:hover {
+      color: var(--color-accent);
+    }
+    .auth-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.6rem;
+      font-size: 0.84rem;
+      color: #999999;
+      font-family: var(--font-secondary);
+    }
+    .auth-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .auth-checkbox-label input[type="checkbox"] {
+      accent-color: var(--color-accent);
+    }
+    .auth-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .auth-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+    .auth-btn-submit {
+      width: 100%;
+      padding: 0.95rem;
+      background: var(--color-accent);
+      color: #0a0a0a;
+      border: none;
+      border-radius: 3px;
+      font-family: var(--font-tertiary);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .auth-btn-submit:hover {
+      background: var(--color-accent-hover);
+      color: #ffffff;
+    }
+    .auth-footer {
+      text-align: center;
+      margin-top: 1.8rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: var(--font-secondary);
+      font-size: 0.88rem;
+      color: #888888;
+    }
+    .auth-alert {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+      font-family: var(--font-secondary);
+    }
+    .auth-alert-danger {
+      background: rgba(220, 53, 69, 0.15);
+      border: 1px solid #dc3545;
+      color: #ff8591;
+    }
+    .auth-alert-success {
+      background: rgba(40, 167, 69, 0.15);
+      border: 1px solid #28a745;
+      color: #7ce597;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <!-- Minimal Header -->
+  <header class="site-header" style="background: rgba(10, 10, 10, 0.95);">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="header-logo" aria-label="Hotel &amp; Spa Adina Home">
+        <img src="assets/img/logo-white.svg" alt="Hotel &amp; Spa Adina Logo">
+      </a>
+      <a href="index.html" class="text-white text-decoration-none" style="font-family: var(--font-tertiary); font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;">
+        <i class="bi bi-arrow-left me-1 text-accent"></i> Back to Hotel
+      </a>
+    </div>
+  </header>
+
+  <!-- Login Main -->
+  <main class="auth-container">
+    <div class="auth-box">
+      <div class="auth-header">
+        <p class="auth-subtitle">Guest Portal</p>
+        <h1 class="auth-title">Welcome Back</h1>
+      </div>
+
+      <!-- Demo Info Helper -->
+      <div class="demo-callout d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div>
+          <i class="bi bi-shield-lock-fill me-1" style="color:var(--color-accent)"></i>
+          Demo: <strong>demo@hoteladina.com</strong> / <strong>demo1234</strong>
+        </div>
+        <button type="button" class="demo-fill-btn" id="demoFillBtn">Auto-Fill</button>
+      </div>
+
+      <!-- Dynamic Message Alert -->
+      <div class="auth-alert auth-alert-danger" id="loginAlert"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="auth-form-group">
+          <label for="loginEmail">Email Address</label>
+          <div class="auth-input-wrapper">
+            <i class="bi bi-envelope input-icon"></i>
+            <input type="email" id="loginEmail" class="auth-input" placeholder="name@domain.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="auth-form-group">
+          <label for="loginPassword">Password</label>
+          <div class="auth-input-wrapper">
+            <i class="bi bi-lock input-icon"></i>
+            <input type="password" id="loginPassword" class="auth-input" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="togglePasswordBtn" aria-label="Toggle password visibility">
+              <i class="bi bi-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-meta-row">
+          <label class="auth-checkbox-label">
+            <input type="checkbox" id="rememberMe" checked> Remember me
+          </label>
+          <a href="#" class="auth-link" onclick="alert('Demo notice: You can sign in using demo@hoteladina.com / demo1234, or create a new account instantly.'); return false;">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-btn-submit" id="submitLoginBtn">
+          <span>Sign In</span> <i class="bi bi-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account yet? <a href="signup.html" class="auth-link fw-bold ms-1" id="signupLink">Create Account</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('loginForm');
+      const emailInput = document.getElementById('loginEmail');
+      const passInput = document.getElementById('loginPassword');
+      const alertBox = document.getElementById('loginAlert');
+      const demoBtn = document.getElementById('demoFillBtn');
+      const toggleBtn = document.getElementById('togglePasswordBtn');
+      const signupLink = document.getElementById('signupLink');
+
+      // Preserve redirect param
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectUrl = urlParams.get('redirect') || 'index.html';
+      if (signupLink && redirectUrl !== 'index.html') {
+        signupLink.href = 'signup.html?redirect=' + encodeURIComponent(redirectUrl);
+      }
+
+      // Check if already logged in
+      const currentUser = localStorage.getItem('adina_user');
+      if (currentUser) {
+        window.location.href = redirectUrl;
+        return;
+      }
+
+      // Auto-fill demo credentials
+      if (demoBtn) {
+        demoBtn.addEventListener('click', function () {
+          emailInput.value = 'demo@hoteladina.com';
+          passInput.value = 'demo1234';
+          alertBox.style.display = 'none';
+        });
+      }
+
+      // Toggle password
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          const isPass = passInput.type === 'password';
+          passInput.type = isPass ? 'text' : 'password';
+          toggleBtn.innerHTML = isPass ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
+        });
+      }
+
+      // Handle submit
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = emailInput.value.trim().toLowerCase();
+        const pass = passInput.value;
+
+        if (!email || !pass) {
+          showAlert('Please enter both your email address and password.', 'danger');
+          return;
+        }
+
+        // Check against demo user & localStorage users
+        let matchedUser = null;
+        if (email === 'demo@hoteladina.com' && pass === 'demo1234') {
+          matchedUser = { name: 'Demo Guest', email: 'demo@hoteladina.com' };
+        } else {
+          try {
+            const stored = JSON.parse(localStorage.getItem('adina_users') || '[]');
+            const found = stored.find(u => u.email.toLowerCase() === email && u.password === pass);
+            if (found) {
+              matchedUser = { name: found.name, email: found.email };
+            }
+          } catch (err) {
+            console.error(err);
+          }
+        }
+
+        if (matchedUser) {
+          localStorage.setItem('adina_user', JSON.stringify(matchedUser));
+          showAlert('Welcome back, ' + matchedUser.name + '! Redirecting...', 'success');
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 800);
+        } else {
+          showAlert('Invalid email or password. Use demo@hoteladina.com / demo1234 or sign up.', 'danger');
+        }
+      });
+
+      function showAlert(msg, type) {
+        alertBox.textContent = msg;
+        alertBox.className = 'auth-alert ' + (type === 'success' ? 'auth-alert-success' : 'auth-alert-danger');
+        alertBox.style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>
