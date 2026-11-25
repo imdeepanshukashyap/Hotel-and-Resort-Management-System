@@ -104,4 +104,52 @@ document.addEventListener('DOMContentLoaded', function () {
       successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   }
+
+  // ── Navbar Authentication State (Login / Profile / Logout) ──────────────
+  (function initNavbarAuth() {
+    var mainNav = document.querySelector('.main-nav');
+    if (!mainNav) return;
+
+    var isAuthPage = /login\.html|signup\.html/i.test(window.location.pathname);
+    if (isAuthPage) return;
+
+    var existingAuth = mainNav.querySelector('.nav-user-container');
+    if (existingAuth) existingAuth.remove();
+
+    var container = document.createElement('div');
+    container.className = 'nav-user-container d-flex align-items-center gap-2 ms-lg-2 my-2 my-lg-0';
+
+    try {
+      var user = JSON.parse(localStorage.getItem('adina_user') || 'null');
+      if (user && user.name) {
+        var firstName = user.name.split(' ')[0];
+        container.innerHTML =
+          '<span class="nav-link-custom d-flex align-items-center gap-1 text-white" style="cursor:default; font-size:0.85rem;">' +
+            '<i class="bi bi-person-circle text-accent fs-5"></i> ' +
+            '<span>' + firstName + '</span>' +
+          '</span>' +
+          '<a href="#" id="navLogoutBtn" class="btn-custom btn-custom-sm btn-dark py-1 px-2 text-uppercase" style="font-size:0.75rem; border:1px solid rgba(255,255,255,0.2);">' +
+            'Logout' +
+          '</a>';
+        mainNav.appendChild(container);
+
+        var logoutBtn = document.getElementById('navLogoutBtn');
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.removeItem('adina_user');
+            window.location.reload();
+          });
+        }
+      } else {
+        container.innerHTML =
+          '<a href="login.html" class="btn-custom btn-custom-sm btn-accent text-uppercase d-inline-flex align-items-center gap-1 py-2 px-3" style="font-size:0.8rem; letter-spacing:1px;">' +
+            '<i class="bi bi-box-arrow-in-right"></i> Sign In' +
+          '</a>';
+        mainNav.appendChild(container);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  })();
 });
