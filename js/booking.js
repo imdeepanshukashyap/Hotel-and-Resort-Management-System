@@ -37,6 +37,30 @@ document.addEventListener('DOMContentLoaded', function () {
     homeCheckIn.min  = today;
     homeCheckOut.min = today;
 
+    function updateRoomCheckoutLinks() {
+      var ci = homeCheckIn ? homeCheckIn.value : '';
+      var co = homeCheckOut ? homeCheckOut.value : '';
+      var adults = document.getElementById('adults-count');
+      var kids   = document.getElementById('kids-count');
+      var aVal   = adults ? adults.value : '2';
+      var kVal   = kids   ? kids.value   : '0';
+
+      var cards = document.querySelectorAll('.room-card a[href*="checkout.html"]');
+      cards.forEach(function (link) {
+        var href = link.getAttribute('href');
+        var match = href.match(/id=(\d+)/);
+        if (match) {
+          var id = match[1];
+          var newUrl = 'checkout.html?id=' + id;
+          if (ci)   newUrl += '&checkIn=' + encodeURIComponent(ci);
+          if (co)   newUrl += '&checkOut=' + encodeURIComponent(co);
+          if (aVal) newUrl += '&adults=' + encodeURIComponent(aVal);
+          if (kVal) newUrl += '&kids=' + encodeURIComponent(kVal);
+          link.setAttribute('href', newUrl);
+        }
+      });
+    }
+
     homeCheckIn.addEventListener('change', function () {
       if (homeCheckOut.value && homeCheckOut.value <= homeCheckIn.value) {
         var d = new Date(homeCheckIn.value);
@@ -44,16 +68,31 @@ document.addEventListener('DOMContentLoaded', function () {
         homeCheckOut.value = d.toISOString().split('T')[0];
       }
       if (resultLine) resultLine.textContent = '';
+      updateRoomCheckoutLinks();
     });
+
+    if (homeCheckOut) {
+      homeCheckOut.addEventListener('change', function () {
+        if (resultLine) resultLine.textContent = '';
+        updateRoomCheckoutLinks();
+      });
+    }
+
+    var adultsSelect = document.getElementById('adults-count');
+    var kidsSelect   = document.getElementById('kids-count');
+    if (adultsSelect) adultsSelect.addEventListener('change', updateRoomCheckoutLinks);
+    if (kidsSelect)   kidsSelect.addEventListener('change', updateRoomCheckoutLinks);
+
+    updateRoomCheckoutLinks();
   }
 
   if (bookingForm) {
     bookingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
       var d1 = homeCheckIn ? new Date(homeCheckIn.value) : null;
       var d2 = homeCheckOut ? new Date(homeCheckOut.value) : null;
 
       if (d1 && d2 && d2 <= d1) {
-        e.preventDefault();
         if (resultLine) {
           resultLine.style.color = '#f87171';
           resultLine.textContent = 'Check-out must be after check-in. Please adjust your dates.';
@@ -61,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      if (d1 && d2 && d2 > d1 && resultLine) {
+      if (d1 && d2 && d2 > d1) {
         var nights  = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
         var adults  = document.getElementById('adults-count');
         var kids    = document.getElementById('kids-count');
@@ -71,10 +110,21 @@ document.addEventListener('DOMContentLoaded', function () {
         var guestStr = aCount + ' adult' + (aCount > 1 ? 's' : '');
         if (kCount && kCount !== '0') guestStr += ', ' + kCount + ' kid' + (kCount > 1 ? 's' : '');
 
-        resultLine.style.color = 'var(--color-accent,#c9a96e)';
-        resultLine.textContent =
-          'Searching available rooms for ' + nights + ' night' + (nights > 1 ? 's' : '') +
-          ' · ' + guestStr + ' — loading results...';
+        if (typeof updateRoomCheckoutLinks === 'function') {
+          updateRoomCheckoutLinks();
+        }
+
+        if (resultLine) {
+          resultLine.style.color = 'var(--color-accent,#c9a96e)';
+          resultLine.textContent =
+            'Showing available rooms for ' + nights + ' night' + (nights > 1 ? 's' : '') +
+            ' · ' + guestStr + ' — select any room below to proceed to checkout.';
+        }
+
+        var roomsSection = document.getElementById('rooms');
+        if (roomsSection) {
+          roomsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     });
   }
