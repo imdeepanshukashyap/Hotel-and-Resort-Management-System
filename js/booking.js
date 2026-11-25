@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var aVal   = adults ? adults.value : '2';
       var kVal   = kids   ? kids.value   : '0';
 
-      var cards = document.querySelectorAll('.room-card a[href*="checkout.html"]');
+      var cards = document.querySelectorAll('.resort-book-btn, a[href*="checkout.html"]');
       cards.forEach(function (link) {
         var href = link.getAttribute('href');
         var match = href.match(/id=(\d+)/);
