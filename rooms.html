@@ -101,13 +101,21 @@
           From cosy superior rooms to spacious luxury suites, every room at Adina is designed for comfort, calm and a good night's sleep.
         </p>
       </div>
+
+      <div class="room-filter">
+        <button type="button" class="room-filter-btn active" data-filter="all">All Rooms</button>
+        <button type="button" class="room-filter-btn" data-filter="superior">Superior</button>
+        <button type="button" class="room-filter-btn" data-filter="signature">Signature</button>
+        <button type="button" class="room-filter-btn" data-filter="deluxe">Deluxe</button>
+        <button type="button" class="room-filter-btn" data-filter="luxury">Luxury</button>
+      </div>
     </div>
   </section>
 
   <section class="room-list-section" id="room-list">
     <div class="container">
 
-      <article class="room-row">
+      <article class="room-row" data-category="superior" data-guests="1">
         <div class="room-row-img">
           <img src="assets/img/rooms/1.png" alt="Superior Room">
         </div>
@@ -131,7 +139,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="signature" data-guests="2">
         <div class="room-row-img">
           <img src="assets/img/rooms/2.png" alt="Signature Room">
         </div>
@@ -155,7 +163,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="deluxe" data-guests="3">
         <div class="room-row-img">
           <img src="assets/img/rooms/3.png" alt="Deluxe Room with garden terrace">
         </div>
@@ -179,7 +187,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="luxury" data-guests="4">
         <div class="room-row-img">
           <img src="assets/img/rooms/4.png" alt="Luxury Room with private balcony">
         </div>
@@ -203,7 +211,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="luxury" data-guests="5">
         <div class="room-row-img">
           <img src="assets/img/rooms/5.png" alt="Luxury Suite Room with living room">
         </div>
@@ -227,7 +235,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="deluxe" data-guests="6">
         <div class="room-row-img">
           <img src="assets/img/rooms/6.png" alt="Deluxe Room with family layout">
         </div>
@@ -251,7 +259,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="luxury" data-guests="7">
         <div class="room-row-img">
           <img src="assets/img/rooms/7.png" alt="Luxury Room penthouse style">
         </div>
@@ -275,7 +283,7 @@
         </div>
       </article>
 
-      <article class="room-row">
+      <article class="room-row" data-category="deluxe" data-guests="8">
         <div class="room-row-img">
           <img src="assets/img/rooms/8.png" alt="Deluxe Room premium layout">
         </div>
@@ -298,6 +306,8 @@
           </div>
         </div>
       </article>
+
+      <p class="no-rooms" id="no-rooms" hidden>No rooms match your selection. Try fewer guests or choose All Rooms.</p>
 
     </div>
   </section>
@@ -401,9 +411,7 @@
     </div>
   </footer>
 
-  <!-- Main JavaScript for Responsive Mobile Navigation -->
   <script src="js/main.js"></script>
-  <!-- Rooms Filter & Search (Ayush Gupta) -->
   <script src="js/rooms.js"></script>
 </body>
 </html>
