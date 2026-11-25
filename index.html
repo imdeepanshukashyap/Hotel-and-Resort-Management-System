@@ -148,6 +148,7 @@
             <button type="button" class="btn-loc-chip" data-test-loc="agra">Agra</button>
             <button type="button" class="btn-loc-chip" data-test-loc="mathura">Mathura</button>
             <button type="button" class="btn-loc-chip" data-test-loc="delhi">Delhi</button>
+            <button type="button" class="btn-loc-chip" data-test-loc="noida">Noida</button>
             <button type="button" class="btn-loc-chip reset-chip d-none" id="btnResetLocation"><i
                 class="bi bi-x-circle"></i> Reset</button>
           </div>
@@ -155,8 +156,8 @@
 
         <div class="dest-search-wrap">
           <i class="bi bi-search"></i>
-          <input type="text" id="destSearchInput" class="dest-search-input" placeholder="Search hotels, landmarks..."
-            aria-label="Search hotels">
+          <input type="text" id="destSearchInput" class="dest-search-input" placeholder="Search city or hotel (e.g. Delhi, Agra, Mathura, Pool)..."
+            aria-label="Search hotels or nearby city">
         </div>
       </div>
 
@@ -528,16 +529,6 @@
         <p style="font-size: 13px;">Try searching for "Taj", "Pool", "Prem Mandir", "Gardens", or clear the filter.</p>
       </div>
     </div>
-  </section>
-
-  <!-- No Results Placeholder for Destination Search -->
-  <div id="destNoResult" style="display:none; text-align:center; padding: 40px 20px; color: var(--color-text-muted);">
-    <i class="bi bi-building-slash"
-      style="font-size: 2.2rem; color: var(--color-accent); display:block; margin-bottom: 10px;"></i>
-    <h5>No properties match your destination search</h5>
-    <p style="font-size: 13px;">Try searching for "Taj", "Pool", "Prem Mandir", "Gardens", or clear the filter.</p>
-  </div>
-  </div>
   </section>
 
   <!-- ========================================================================
